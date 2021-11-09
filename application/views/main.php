@@ -78,13 +78,12 @@
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="assets/theme/js/pages/dashboard.js"></script>
 
-  <!-- <script src="assets/js/jquery.min.js"></script> -->
+  <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/bootstrap.bundle.js"></script>
 
   <!-- DaataTables -->
   <script src="assets/DataTables/DataTables-1.11.3/js/jquery.dataTables.min.js"></script>
   <script src="assets/DataTables/DataTables-1.11.3/js/dataTables.bootstrap4.min.js"></script>
-
   <!-- Memanggil Data Tables -->
   <script>
     $(document).ready(function() {
