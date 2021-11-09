@@ -48,7 +48,7 @@
                   foreach ($sub_menu->result() as $sub) {
                   ?>
                     <li class="nav-item">
-                      <a href="<?php echo base_url() ?>" class="nav-link">
+                      <a href="<?php echo base_url($sub->url) ?>" class="nav-link">
                         <i class="nav-icon fas fa-empty-set"></i>
                         <p><?php echo $sub->navbar_name; ?></p>
                       </a>
