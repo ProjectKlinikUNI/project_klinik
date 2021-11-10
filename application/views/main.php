@@ -87,7 +87,7 @@
   <!-- Memanggil Data Tables -->
   <script>
     $(document).ready(function() {
-      $('#datapasien').DataTable();
+      $('#table').DataTable();
     });
   </script>
 </body>

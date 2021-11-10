@@ -3,8 +3,8 @@
         <button class="btn btn-info ml-3 mt-3" data-toggle="modal" data-target="#create">Tambah Pasien Baru</button>
         <div class="card border-info ml-3 mt-3">
             <!-- <div class="card-header "></div> -->
-            <div class="card-body text-info">
-                <table id="datapasien" class="table table-striped table-bordered" style="width:100%">
+            <div class="card-body ">
+                <table id="table" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr class="text-center">
                             <th>NO</th>
@@ -49,7 +49,17 @@
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create">
     Launch demo modal
 </button> -->
+<?php
+$date = date('ydm');
 
+$urutan = 1;
+$urutan++;
+$id = 'PS' . $date .  $urutan;
+
+
+
+
+?>
 <!-- Modal Data Pasien -->
 <div class="modal fade " id="create" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
@@ -67,7 +77,7 @@
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">ID Pendaftaran</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="id" required>
+                                    <input type="text" class="form-control" id="staticEmail" name="id" value="<?= $id ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">

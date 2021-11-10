@@ -22,3 +22,5 @@
 <link rel="stylesheet" href="assets/plugins/daterangepicker/daterangepicker.css">
 <!-- summernote -->
 <link rel="stylesheet" href="assets/plugins/summernote/summernote-bs4.min.css">
+<!-- css datatables -->
+<link rel="stylesheet" href="assets/DataTables/DataTables-1.11.3/css/dataTables.bootstrap4.min.css">
