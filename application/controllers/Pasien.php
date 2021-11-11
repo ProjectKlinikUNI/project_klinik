@@ -26,4 +26,12 @@ class Pasien extends CI_Controller
         $this->pasien->update();
         redirect('pasien');
     }
+    public function cari()
+    {
+        $this->pasien->cari();
+        $data['view'] = $this->pasien->view();
+        $data['title'] = 'Pasien_terdaftra';
+        $data['content_wrapper'] = $this->load->view('pasien/pasien_terdaftar', $data, true);
+        $this->load->view('main', $data);
+    }
 }

@@ -48,4 +48,11 @@ class pasien_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->update('dm_pasien');
     }
+    public function cari()
+    {
+        $cari = $this->input->post('cari');
+        $this->db->like('id', $cari);
+        $this->db->or_like('nama', $cari);
+        return  $this->db->get('dm_pasien')->row_array();
+    }
 }
