@@ -18,6 +18,7 @@ class Pasien_terdaftar extends CI_Controller
     }
     public function create()
     {
+        $this->pasien->create();
         // $this->pasien->create();
         redirect('Pasien_terdaftar');
     }

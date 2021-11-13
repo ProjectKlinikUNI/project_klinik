@@ -22,13 +22,13 @@
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-4 col-form-label">Id Pasien</label>
                                 <div class="col-sm-8">
-                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?= $pasien['id'] ?>" name="id">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?= $pasien['id'] ?>" name="id_pasien">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-4 col-form-label">Nama</label>
                                 <div class="col-sm-8">
-                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?= $pasien['nama'] ?>">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?= $pasien['nama'] ?>" name="nama">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -42,8 +42,8 @@
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-4 col-form-label">Poli Klinik</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" id="exampleFormControlSelect1" name="id_polinik">
-                                        <option>1</option>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="id_poliklinik">
+                                        <option value="1">1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
@@ -54,8 +54,8 @@
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-4 col-form-label">Dokter</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" id="exampleFormControlSelect1" name="">
-                                        <option>1</option>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="id_dokter">
+                                        <option value="1">1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
