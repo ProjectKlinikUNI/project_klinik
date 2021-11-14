@@ -20,11 +20,15 @@
                         ?>
                             <tr>
                                 <td><?= $no; ?></td>
-                                <td><?= $r['id'] ?></td>
-                                <td><?= $r['nama'] ?></td>
+                                <td><?= $r['id_dokter'] ?></td>
+                                <td><?= $r['nama_dokter'] ?></td>
                                 <td><?= $r['spesialis'] ?></td>
                                 <td class="text-center">
-                                    <a href="<?= base_url('dokter/update') ?>" data-toggle="modal" data-target="#update<?= $r['id'] ?>"><i class="far fa-edit"></i></a>
+                                    <!-- <a href="<?= base_url('dokter/update') ?>" data-toggle="modal" data-target="#update<?= $r['id'] ?>"><i class="far fa-edit"></i></a>
+                                    <a href="<?= base_url('dokter/delete/') ?><?= $r['id_dokter'] ?> " data-toggle="modal" data-target="#delete<?= $r['id_dokter'] ?>"><i class="fas fa-trash-alt"></i></a> -->
+                                    <a href="<?= base_url() . 'dokter/update/' . $r['id_dokter']; ?>" class="btn btn-warning btn-sm">Edit</a>
+
+                                    <a href="<?= base_url() . 'dokter/delete/' . $r['id_dokter']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin akan menghapus data?')">Hapus</a>
                                 </td>
                             </tr>
                     </tbody>
@@ -77,13 +81,13 @@ $no = 'DR' . $date .  $urutan;
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">ID Dokter</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="id" value="<?= $no; ?>" required>
+                                    <input type="text" class="form-control" id="staticEmail" name="id_dokter" value="<?= $no; ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">Nama Lengkap</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="nama" required>
+                                    <input type="text" class="form-control" id="staticEmail" name="nama_dokter" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -105,7 +109,7 @@ $no = 'DR' . $date .  $urutan;
 </div>
 <!-- modal Update dokter -->
 <?php foreach ($view as $r) : ?>
-    <div class="modal fade " id="update<?= $r['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade " id="update<?= $r['id_dokter'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header bg-info">
@@ -121,13 +125,13 @@ $no = 'DR' . $date .  $urutan;
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">ID Dokter</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="id" value="<?= $r['id'] ?>" required>
+                                        <input type="text" class="form-control" id="staticEmail" name="id_dokter" value="<?= $r['id_dokter'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">Nama Lengkap</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="nama" value="<?= $r['nama'] ?>" required>
+                                        <input type="text" class="form-control" id="staticEmail" name="nama_dokter" value="<?= $r['nama_dokter'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
