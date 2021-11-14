@@ -26,4 +26,9 @@ class Jadwal_dokter extends CI_Controller
         $this->jadwal->update();
         redirect('jadwal_dokter');
     }
+    public function delete()
+    {
+        $this->jadwal->update();
+        redirect('jadwal_dokter');
+    }
 }

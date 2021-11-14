@@ -22,6 +22,7 @@ class jadwal_dokter_model extends CI_Model
     }
     public function update()
     {
+        $this->db->update('tbl_jadwal_dokter');
     }
     public function delete()
     {
