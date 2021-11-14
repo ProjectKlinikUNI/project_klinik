@@ -65,7 +65,7 @@ $id = 'PS' . $date .  $urutan;
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header bg-info">
-                <h5 class="modal-title" id="exampleModalLabel">Ubah Pasien Baru</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Pasien Baru</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -153,7 +153,7 @@ $id = 'PS' . $date .  $urutan;
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header bg-info">
-                    <h5 class="modal-title" id="exampleModalLabel">Daftar Pasien Baru</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Ubah Pasien</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
