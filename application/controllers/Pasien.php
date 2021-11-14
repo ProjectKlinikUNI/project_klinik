@@ -6,7 +6,7 @@ class Pasien extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('pasien_terdaftar_model', 'pasien');
+        $this->load->model('pasien_model', 'pasien');
     }
 
     public function index()
