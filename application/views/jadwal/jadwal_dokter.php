@@ -27,7 +27,7 @@
                                 <td><?= $v['id_poliklinik'] ?></td>
                                 <td><?= $v['hari'] ?></td>
                                 <td><?= $v['jam_mulai']   ?> - <?= $v['jam_mulai']   ?></td>
-                                <td class="text-center"><a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id'] ?>"><i class="far fa-edit"></i></a></td>
+                                <td class="text-center"><a href="<?= base_url('Jadwal_dokter/update') ?>" data-toggle="modal" data-target="#update<?= $v['id'] ?>"><i class="far fa-edit"></i></a></td>
                             </tr>
                     </tbody>
                     <!-- <tfoot>
