@@ -26,4 +26,9 @@ class Poli extends CI_Controller
         $this->poli->update();
         redirect('poli');
     }
+    public function delete($id_poli)
+    {
+        $this->poli->delete($id_poli);
+        redirect('poli');
+    }
 }

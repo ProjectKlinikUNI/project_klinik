@@ -26,4 +26,9 @@ class Dokter extends CI_Controller
         $this->dokter->update();
         redirect('dokter');
     }
+    public function delete($id_dokter)
+    {
+        $this->dokter->delete($id_dokter);
+        redirect('dokter');
+    }
 }

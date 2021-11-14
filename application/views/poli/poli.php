@@ -19,9 +19,14 @@
                         ?>
                             <tr>
                                 <td><?= $no; ?></td>
-                                <td><?= $p['id'] ?></td>
+                                <td><?= $p['id_poli'] ?></td>
                                 <td><?= $p['nama_poli'] ?></td>
-                                <td class="text-center"><a href="<?= base_url('poli/update') ?>" data-toggle="modal" data-target="#update<?= $p['id'] ?>"><i class="far fa-edit"></i></a></td>
+                                <td class="text-center">
+                                    <!-- <a href="<?= base_url('poli/update') ?>" data-toggle="modal" data-target="#update<?= $p['id_poli'] ?>"><i class="far fa-edit"></i></a> -->
+                                    <a href="<?= base_url() . 'poli/update/' . $p['id_poli']; ?>" class="btn btn-warning btn-sm">Edit</a>
+
+                                    <a href="<?= base_url() . 'poli/delete/' . $p['id_poli']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin akan menghapus data?')">Hapus</a>
+                                </td>
                             </tr>
                     </tbody>
                     <!-- <tfoot>
@@ -73,7 +78,7 @@ $no = 'PK' . $date .  $urutan;
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">ID Poliklinik</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="id" value="<?= $no ?>" required>
+                                    <input type="text" class="form-control" id="staticEmail" name="id_poli" value="<?= $no ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -95,7 +100,7 @@ $no = 'PK' . $date .  $urutan;
 </div>
 <!-- modal Update Poliklinik -->
 <?php foreach ($view as $p) : ?>
-    <div class="modal fade " id="update<?= $p['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade " id="update<?= $p['id_poli'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header bg-info">
@@ -111,7 +116,7 @@ $no = 'PK' . $date .  $urutan;
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">ID Poliklinik</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="id" value="<?= $p['id'] ?>" required>
+                                        <input type="text" class="form-control" id="staticEmail" name="id_poli" value="<?= $p['id_poli'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
