@@ -24,10 +24,12 @@
                                 <td><?= $i; ?></td>
                                 <td><?= $v['id_dokter'] ?></td>
                                 <td></td>
-                                <td><?= $v['id_poliklinik'] ?></td>
+                                <td><?= $v['id_poli'] ?></td>
                                 <td><?= $v['hari'] ?></td>
                                 <td><?= $v['jam_mulai']   ?> - <?= $v['jam_mulai']   ?></td>
-                                <td class="text-center"><a href="<?= base_url('Jadwal_dokter/update') ?>" data-toggle="modal" data-target="#update<?= $v['id'] ?>"><i class="far fa-edit"></i></a></td>
+                                <td class="text-center"><a href="<?= base_url('Jadwal_dokter/update') ?>" data-toggle="modal" data-target="#update<?= $v['id_jadwal'] ?>"><i class="far fa-edit"></i></a> |
+                                    <a href="<?= base_url('Jadwal_dokter/update') ?>" data-toggle="modal" data-target="#update<?= $v['id_jadwal'] ?>"><i class="far fa-trash-alt text-danger"></i></a>
+                                </td>
                             </tr>
                     </tbody>
                     <!-- <tfoot>
@@ -79,7 +81,12 @@ $id = 'PS' . $date .  $urutan;
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">ID Dokter</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="id_dokter" required>
+                                    <select class="form-control" id="idDokter" name="nama_dokter">
+                                        <option>1</option>
+                                        <?php foreach ($dokter as $d) : ?>
+                                            <option><?= $d['nama_dokter'] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -91,7 +98,7 @@ $id = 'PS' . $date .  $urutan;
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">Poli Klinik</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="id_poliklinik" required>
+                                    <input type="text" class="form-control" id="staticEmail" name="id_poli" required>
                                 </div>
                             </div>
                             <div class="form-group row">
