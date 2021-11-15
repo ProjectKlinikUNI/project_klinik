@@ -84,7 +84,7 @@ $id = 'PS' . $date .  $urutan;
                                     <select class="form-control" id="idDokter" name="nama_dokter">
                                         <option></option>
                                         <?php foreach ($dokter as $d) : ?>
-                                            <option><?= $d['nama_dokter'] ?></option>
+                                            <option><?= $d['id_dokter'] ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
