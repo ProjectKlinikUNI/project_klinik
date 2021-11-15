@@ -82,7 +82,7 @@ $id = 'PS' . $date .  $urutan;
                                 <label for="staticEmail" class="col-sm-3 col-form-label">ID Dokter</label>
                                 <div class="col-sm-8">
                                     <select class="form-control" id="idDokter" name="nama_dokter">
-                                        <option>1</option>
+                                        <option></option>
                                         <?php foreach ($dokter as $d) : ?>
                                             <option><?= $d['nama_dokter'] ?></option>
                                         <?php endforeach; ?>

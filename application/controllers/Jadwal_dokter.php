@@ -7,11 +7,13 @@ class Jadwal_dokter extends CI_Controller
     {
         parent::__construct();
         $this->load->model('jadwal_dokter_model', 'jadwal');
+        $this->load->model('dokter_model', 'dokter');
     }
 
     public function index()
     {
         $data['view'] = $this->jadwal->view();
+        $data['dokter'] = $this->dokter->view();
         $data['title'] = 'jadwal';
         $data['content_wrapper'] = $this->load->view('jadwal/jadwal_dokter', $data, true);
         $this->load->view('main', $data);
@@ -28,7 +30,7 @@ class Jadwal_dokter extends CI_Controller
     }
     public function delete()
     {
-        $this->jadwal->update();
+        $this->jadwal->delete();
         redirect('jadwal_dokter');
     }
 }
