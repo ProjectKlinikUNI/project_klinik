@@ -7,7 +7,12 @@
             </div>
             <div class="form-group row ml-2">
                 <div class="col-sm-3">
-                    <input type="text" name="keyword" class="form-control" placeholder="Id Pasien">
+                    <select class="form-control" id="idPasien" name="keyword">
+                        <option></option>
+                        <?php foreach ($list as $d) : ?>
+                            <option><?= $d['id'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
                 <button class="btn btn-info" type="submit">Cari</button>
             </div>

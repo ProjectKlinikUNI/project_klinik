@@ -12,6 +12,7 @@ class Pasien_terdaftar extends CI_Controller
     public function index()
     {
         $data['pasien'] = $this->pasien->view();
+        $data['list'] = $this->pasien->listPasien();
         $data['title'] = 'Pasien';
         $data['content_wrapper'] = $this->load->view('pasien/pasien_terdaftar', $data, true);
         $this->load->view('main', $data);

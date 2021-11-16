@@ -95,6 +95,9 @@
       $('#idDokter').select2({
         placeholder: "Masukkan nama dokter"
       })
+      $('#idPasien').select2({
+        placeholder: "Masukkan Id Pasien"
+      })
     });
   </script>
 </body>
