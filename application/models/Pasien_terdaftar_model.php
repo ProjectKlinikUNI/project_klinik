@@ -10,6 +10,11 @@ class pasien_terdaftar_model extends CI_Model
         // $this->db->or_like('nama', $keyword);
         return $this->db->get_where('dm_pasien', ['id' => $keyword])->row_array();
     }
+    public function listPasien()
+    {
+
+        return $this->db->get('dm_pasien')->result_array();
+    }
     public function create()
     {
         $data = [
