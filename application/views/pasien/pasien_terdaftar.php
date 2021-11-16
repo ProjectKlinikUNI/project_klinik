@@ -48,7 +48,7 @@
                                 <label for="staticEmail" class="col-sm-4 col-form-label">Poli Klinik</label>
                                 <div class="col-sm-8">
                                     <select class="form-control" id="exampleFormControlSelect1" name="id_poliklinik">
-                                        <option value="1">1</option>
+                                        <option value="1"></option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
