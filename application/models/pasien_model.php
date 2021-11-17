@@ -19,7 +19,6 @@ class pasien_model extends CI_Model
             'kontak_lain' => $this->input->post('kontak_lain'),
             'pekerjaan' => $this->input->post('pekerjaan'),
             'alamat' => $this->input->post('alamat'),
-            'jenis_layanan' => $this->input->post('jenis_layanan')
         ];
         $this->db->insert('dm_pasien', $data);
     }
@@ -34,7 +33,6 @@ class pasien_model extends CI_Model
         $kontak_lain = $this->input->post('kontak_lain');
         $pekerjaan = $this->input->post('pekerjaan');
         $alamat = $this->input->post('alamat');
-        $jenis_layanan = $this->input->post('jenis_layanan');
 
         $this->db->set('tempat_lahir', $tempat_lahir);
         $this->db->set('tgl_lahir', $tgl_lahir);
@@ -43,7 +41,6 @@ class pasien_model extends CI_Model
         $this->db->set('kontak_lain', $kontak_lain);
         $this->db->set('pekerjaan', $pekerjaan);
         $this->db->set('alamat', $alamat);
-        $this->db->set('jenis_layanan', $jenis_layanan);
         $this->db->set('nama', $nama);
         $this->db->where('id', $id);
         $this->db->update('dm_pasien');
