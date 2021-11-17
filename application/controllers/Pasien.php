@@ -20,6 +20,7 @@ class Pasien extends CI_Controller
     public function create()
     {
         $this->pasien->create();
+        $this->session->flashdata('Message', 'Data Pasien Berhasil Ditambahkan');
         redirect('Pasien');
     }
     public function update()

@@ -84,10 +84,15 @@
 
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+  <!-- sweet alert -->
+  <script src="assets/plugins/sweetalert2/sweetalert2.all.js"></script>
+  <!-- memanggail sweet alert -->
+
 
   <!-- DaataTables -->
-  <script src="assets/DataTables/DataTables-1.11.3/js/jquery.dataTables.min.js"></script>
-  <script src="assets/DataTables/DataTables-1.11.3/js/dataTables.bootstrap4.min.js"></script>
+  <script src="assets/DataTables/DataTables-1.11.3/js/jquery.dataTables.min.js"> </script>
+  <script src="assets/DataTables/DataTables-1.11.3/js/dataTables.bootstrap4.min.js">
+  </script>
   <!-- Memanggil Data Tables -->
   <script>
     $(document).ready(function() {
@@ -98,6 +103,8 @@
       $('#idPasien').select2({
         placeholder: "Masukkan Id Pasien"
       })
+      const message = $('.message').data('message');
+      console.log();
     });
   </script>
 </body>
