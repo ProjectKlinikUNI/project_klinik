@@ -57,7 +57,7 @@
                             <td>JENIS POLI</td>
                             <td>JENIS LAYANAN</td>
                             <td>DOKTER</td>
-                            <td><a href="" data-toggle="modal" data-target="#create"><i class="far fa-edit"></i></a></td>
+                            <td><a href="<?= base_url('Input_tindakan/diagnosa') ?>"> <i class="far fa-edit"></i></a></td>
                         </tr>
                     </tbody>
                 </table>
