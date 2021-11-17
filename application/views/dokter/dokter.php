@@ -9,7 +9,7 @@
                         <tr class="text-center">
                             <th>NO</th>
                             <th>ID DOKTER</th>
-                            <th>NAMA DOKTER</th>
+                            <th>NAMA DOKTERrr</th>
                             <th>SPESIALIS</th>
                             <th>AKSI</th>
                         </tr>
