@@ -12,7 +12,14 @@ class Input_tindakan extends CI_Controller
     {
         $data['view'] = $this->tindakan->view();
         $data['title'] = 'Input Tindakan';
-        $data['content_wrapper'] = $this->load->view('tindakan/input_tindakan', $data, true);
+        $data['content_wrapper'] = $this->load->view('tindakan/input_tindakan_dokter', $data, true);
+        $this->load->view('main', $data);
+    }
+    public function diagnosa()
+    {
+        $data['view'] = $this->tindakan->view();
+        $data['title'] = 'Input Tindakan';
+        $data['content_wrapper'] = $this->load->view('tindakan/input_tindakan_dokter', $data, true);
         $this->load->view('main', $data);
     }
 }
