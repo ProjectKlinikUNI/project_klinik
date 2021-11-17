@@ -48,4 +48,16 @@ class pasien_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->update('dm_pasien');
     }
+    public function kode()
+    {
+        $pasien = "SELECT MAX(id) as id_pasien FROM dm_pasien ORDER BY id DESC";
+        $p = $this->db->query($pasien)->row_array();
+        $kode = $p['id_pasien'];
+        $noUrut = (int)substr($kode, 6, 4);
+        $noUrut++;
+        $char = "PS";
+        $date = date('Y');
+        $kodePasien = $char . $date . sprintf("%04s", $noUrut);
+        return $kodePasien;
+    }
 }

@@ -50,12 +50,6 @@
     Launch demo modal
 </button> -->
 <?php
-$date = date('ydm');
-
-$urutan = 1;
-$urutan++;
-$id = 'PS' . $date .  $urutan;
-
 
 
 
@@ -77,7 +71,7 @@ $id = 'PS' . $date .  $urutan;
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">ID Pendaftaran</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="id" value="<?= $id; ?>" required>
+                                    <input type="text" class="form-control" id="staticEmail" name="id" value="<?= $kode; ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
