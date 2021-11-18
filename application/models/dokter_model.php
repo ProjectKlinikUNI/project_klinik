@@ -11,19 +11,19 @@ class dokter_model extends CI_Model
     {
         $data = [
             'id_dokter' => $this->input->post('id_dokter'),
+            'id_poli' => $this->input->post('id_poli'),
             'nama_dokter' => $this->input->post('nama_dokter'),
-            'spesialis' => $this->input->post('spesialis'),
         ];
         $this->db->insert('dm_dokter', $data);
     }
     public function update()
     {
         $id_dokter = $this->input->post('id_dokter');
+        $id_poli = $this->input->post('id_poli');
         $nama_dokter = $this->input->post('nama_dokter');
-        $spesialis = $this->input->post('spesialis');
 
-        $this->db->set('spesialis', $spesialis);
         $this->db->set('nama_dokter', $nama_dokter);
+        $this->db->set('id_poli', $id_poli);
         $this->db->set('id_dokter', $id_dokter);
         $this->db->update('dm_dokter');
     }

@@ -39,7 +39,7 @@
             if ($sub_menu->num_rows() > 0) {
           ?>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?php echo base_url() ?>" class="nav-link">
                   <?php echo $main->navbar_icon; ?>
                   <p><?php echo $main->navbar_name; ?><i class="right fas fa-angle-left"></i></p>
                 </a>
@@ -62,7 +62,7 @@
             } else {
             ?>
               <li class="nav-item">
-                <a href="<?php echo base_url() ?>" class="nav-link">
+                <a href="<?php echo base_url($main->url) ?>" class="nav-link">
                   <?php echo $main->navbar_icon; ?>
                   <p><?php echo $main->navbar_name; ?></p>
                 </a>

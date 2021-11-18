@@ -9,24 +9,25 @@
                         <tr class="text-center">
                             <th>NO</th>
                             <th>ID DOKTER</th>
+                            <th>ID POLIKLINIK</th>
                             <th>NAMA DOKTER</th>
-                            <th>SPESIALIS</th>
                             <th>AKSI</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $no = 1;
+                        <?php $i = 1;
                         foreach ($view as $r) :
                         ?>
                             <tr>
-                                <td><?= $no; ?></td>
-                                <td><?= $r['id_dokter'] ?></td>
+                                <td class="text-center"><?= $i; ?></td>
+                                <td class="text-center"><?= $r['id_dokter'] ?></td>
+                                <td><?= $r['id_poli'] ?></td>
                                 <td><?= $r['nama_dokter'] ?></td>
-                                <td><?= $r['spesialis'] ?></td>
                                 <td class="text-center">
-                                    <!-- <a href="<?= base_url('dokter/update') ?>" data-toggle="modal" data-target="#update<?= $r['id'] ?>"><i class="far fa-edit"></i></a>
-                                    <a href="<?= base_url('dokter/delete/') ?><?= $r['id_dokter'] ?> " data-toggle="modal" data-target="#delete<?= $r['id_dokter'] ?>"><i class="fas fa-trash-alt"></i></a> -->
-                                    <a href="<?= base_url() . 'dokter/update/' . $r['id_dokter']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                                    
+                                    <a href="<?= base_url('dokter/update') ?>" data-toggle="modal" data-target="#update<?= $r['id_dokter']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                                   
+                                    <!-- <a href="<?= base_url() . 'dokter/update/' . $r['id_dokter']; ?>" class="btn btn-warning btn-sm">Edit</a> -->
 
                                     <a href="<?= base_url() . 'dokter/delete/' . $r['id_dokter']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin akan menghapus data?')">Hapus</a>
                                 </td>
@@ -40,7 +41,7 @@
                             <th>AKSI</th>
                         </tr>
                     </tfoot> -->
-                <?php $no++;
+                <?php $i++;
                         endforeach;
                 ?>
                 </table>
@@ -58,7 +59,7 @@ $date = date('ydm');
 
 $urutan = 1;
 $urutan++;
-$no = 'DR' . $date .  $urutan;
+$id = 'DR' . $date .  $urutan;
 
 
 
@@ -81,19 +82,19 @@ $no = 'DR' . $date .  $urutan;
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">ID Dokter</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="id_dokter" value="<?= $no; ?>" required>
+                                    <input type="text" class="form-control" id="staticEmail" name="id_dokter" value="<?= $id; ?>" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-3 col-form-label">ID Poliklinik</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="staticEmail" name="id_poli" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">Nama Lengkap</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" id="staticEmail" name="nama_dokter" required>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-3 col-form-label">Spesialis</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="spesialis" required>
                                 </div>
                             </div>
                         </div>
@@ -129,15 +130,15 @@ $no = 'DR' . $date .  $urutan;
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col-sm-3 col-form-label">Nama Lengkap</label>
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">ID Poliklinik</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="nama_dokter" value="<?= $r['nama_dokter'] ?>" required>
+                                        <input type="text" class="form-control" id="staticEmail" name="id_poli" value="<?= $r['id_poli'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col-sm-3 col-form-label">spesialis</label>
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">Nama Lengkap</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="spesialis" value="<?= $r['spesialis'] ?>" required>
+                                        <input type="text" class="form-control" id="staticEmail" name="nama_dokter" value="<?= $r['nama_dokter'] ?>" required>
                                     </div>
                                 </div>
                             </div>
