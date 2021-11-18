@@ -208,7 +208,46 @@
                     ?>
                     </table>
                 </div>
-                <div class="tab-pane fade" id="tindakan" role="tabpanel" aria-labelledby="resep-tab">...</div>
+                <div class="tab-pane fade" id="tindakan" role="tabpanel" aria-labelledby="resep-tab">
+                    <div class="text-right">
+                        <a href="" class="btn btn-info mb-3 mt-3 " data-toggle="modal" data-target="#tambahtindakan">Tambah Tindakan</a>
+                    </div>
+                    <table id="table" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr class="text-center">
+                                <th>NO</th>
+                                <th>NAMA TINDAKAN</th>
+                                <th>HARGA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1;
+                            foreach ($view as $v) :
+                            ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $v['id'] ?></td>
+                                    <td><?= $v['nama'] ?></td>
+                                    <td><?= $v['jenis_kelamin'] ?></td>
+                                    <td><?= $v['alamat'] ?></td>
+                                    <td class="text-center">
+                                        <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id'] ?>"><i class="far fa-edit text-success"></i></a> | <a href="" data-toggle="modal" data-target="#detail<?= $v['id'] ?>"><i class="fas fa-notes-medical text-info"></i></a>
+                                    </td>
+                                </tr>
+                        </tbody>
+                        <!-- <tfoot>
+                        <tr>
+                            <th>NAMA</th>
+                            <th>JENIS KELAMIN</th>
+                            <th>ALAMAT</th>
+                            <th>AKSI</th>
+                        </tr>
+                    </tfoot> -->
+                    <?php $i++;
+                            endforeach;
+                    ?>
+                    </table>
+                </div>
                 <div class="tab-pane fade" id="tindak_lanjut" role="tabpanel" aria-labelledby="resep-tab">...</div>
                 <div class="tab-pane fade" id="riwayat" role="tabpanel" aria-labelledby="resep-tab">HAI</div>
             </div>
@@ -278,7 +317,7 @@
 </div>
 
 <!-- Modal resep -->
-<div class="modal fade" id="tambahResep" tabindex="-1" aria-labelledby="diagnosaLabel" aria-hidden="true">
+<div class="modal fade" id="tambahresep" tabindex="-1" aria-labelledby="diagnosaLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -296,6 +335,61 @@
                             <th>NAMA</th>
                             <th>SATUAN</th>
                             <th>KETERANGAN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1;
+                        foreach ($view as $v) :
+                        ?>
+                            <tr>
+                                <td><?= $i; ?></td>
+                                <td><?= $v['id'] ?></td>
+                                <td><?= $v['nama'] ?></td>
+                                <td><?= $v['jenis_kelamin'] ?></td>
+                                <td><?= $v['alamat'] ?></td>
+                                <td class="text-center">
+                                    <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id'] ?>"><i class="far fa-edit text-success"></i></a> | <a href="" data-toggle="modal" data-target="#detail<?= $v['id'] ?>"><i class="fas fa-notes-medical text-info"></i></a>
+                                </td>
+                            </tr>
+                    </tbody>
+                    <!-- <tfoot>
+                        <tr>
+                            <th>NAMA</th>
+                            <th>JENIS KELAMIN</th>
+                            <th>ALAMAT</th>
+                            <th>AKSI</th>
+                        </tr>
+                    </tfoot> -->
+                <?php $i++;
+                        endforeach;
+                ?>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal tindakan -->
+<div class="modal fade" id="tambahtindakan" tabindex="-1" aria-labelledby="diagnosaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="diagnosaLabel">Diagnosa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table id="table" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr class="text-center">
+                            <th>NO</th>
+                            <th>NAMA TINDAKAN</th>
+                            <th>HARGA</th>
                         </tr>
                     </thead>
                     <tbody>
