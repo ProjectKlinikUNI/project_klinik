@@ -26,3 +26,5 @@
 <link rel="stylesheet" href="assets/DataTables/DataTables-1.11.3/css/dataTables.bootstrap4.min.css">
 <!-- css select2 -->
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<!-- ckeditor -->
+<script src="<?= base_url('assets/') ?>ckeditor/ckeditor.js"></script>

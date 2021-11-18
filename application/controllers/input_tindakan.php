@@ -8,9 +8,11 @@ class Input_tindakan extends CI_Controller
         parent::__construct();
         $this->load->model('input_tindakan_model', 'tindakan');
     }
-    public function index()
+    public function index($id)
     {
+
         $data['view'] = $this->tindakan->view();
+        $data['tindakan'] = $this->tindakan->viewById($id);
         $data['title'] = 'Input Tindakan';
         $data['content_wrapper'] = $this->load->view('tindakan/input_tindakan_dokter', $data, true);
         $this->load->view('main', $data);

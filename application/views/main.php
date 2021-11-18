@@ -105,8 +105,14 @@
       })
       const message = $('.message').data('message');
       console.log();
+
+
     });
   </script>
+  <!-- <script src="">
+    CKEDITOR.replace('catatan')
+  </script> -->
+
 </body>
 
 </html>
