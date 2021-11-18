@@ -28,4 +28,9 @@ class Pasien extends CI_Controller
         $this->pasien->update();
         redirect('pasien');
     }
+    public function delete($id)
+    {
+        $this->dokter->delete($id);
+        redirect('pasien');
+    }
 }

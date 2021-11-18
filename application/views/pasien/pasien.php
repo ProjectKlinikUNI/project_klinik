@@ -29,7 +29,13 @@
                                 <td><?= $v['jenis_kelamin'] ?></td>
                                 <td><?= $v['alamat'] ?></td>
                                 <td class="text-center">
-                                    <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id'] ?>"><i class="far fa-edit text-success"></i></a> | <a href="" data-toggle="modal" data-target="#detail<?= $v['id'] ?>"><i class="fas fa-notes-medical text-info"></i></a>
+
+                                    <!-- <a href="<?= base_url('dokter/update') ?>" data-toggle="modal" data-target="#update<?= $r['id_dokter'] ?>"><i class="far fa-edit"></i></a> -->
+
+                                    <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
+
+                                    <a href="<?= base_url() . 'pasien/delete/' . $v['id']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin akan menghapus data?')">Hapus</a>
+
                                 </td>
                             </tr>
                     </tbody>
