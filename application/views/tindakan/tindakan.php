@@ -1,6 +1,6 @@
 <div class="content-wrapper mt-5">
     <div class="container ">
-        <button class="btn btn-info ml-3 mt-3" data-toggle="modal" data-target="#create">Tambah Dokter Baru</button>
+        <button class="btn btn-info ml-3 mt-3" data-toggle="modal" data-target="#create">Tambah Tindakan Baru</button>
         <div class="card border-info ml-3 mt-3">
             <!-- <div class="card-header "></div> -->
             <div class="card-body ">
@@ -8,26 +8,26 @@
                     <thead>
                         <tr class="text-center">
                             <th>NO</th>
-                            <th>ID DOKTER</th>
-                            <th>NAMA DOKTER</th>
+                            <th>ID TINDAKAN</th>
+                            <th>TINDAKAN</th>
+                            <th>HARGA</th>
                             <th>AKSI</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1;
-                        foreach ($view as $r) :
+                        foreach ($view as $t) :
                         ?>
                             <tr>
                                 <td class="text-center"><?= $i; ?></td>
-                                <td class="text-center"><?= $r['id_dokter'] ?></td>
-                                <td><?= $r['nama_dokter'] ?></td>
+                                <td class="text-center"><?= $t['id_tindakan'] ?></td>
+                                <td><?= $t['tindakan'] ?></td>
+                                <td><?= $t['harga'] ?></td>
                                 <td class="text-center">
                                     
-                                    <a href="<?= base_url('dokter/update') ?>" data-toggle="modal" data-target="#update<?= $r['id_dokter']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="<?= base_url('tindakan /update') ?>" data-toggle="modal" data-target="#update<?= $t['id_tindakan']; ?>" class="btn btn-warning btn-sm">Edit</a>
                                    
-                                    <!-- <a href="<?= base_url() . 'dokter/update/' . $r['id_dokter']; ?>" class="btn btn-warning btn-sm">Edit</a> -->
-
-                                    <a href="<?= base_url() . 'dokter/delete/' . $r['id_dokter']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin akan menghapus data?')">Hapus</a>
+                                    <a href="<?= base_url() . 'tindakan/delete/' . $t['id_tindakan']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin akan menghapus data?')">Hapus</a>
                                 </td>
                             </tr>
                     </tbody>
@@ -57,42 +57,42 @@ $date = date('ydm');
 
 $urutan = 1;
 $urutan++;
-$id = 'DR' . $date .  $urutan;
+$id = 'TIN' . $date .  $urutan;
 
 
 
 
 ?>
-<!-- Modal Data Dokter -->
+<!-- Modal Data Tindakan -->
 <div class="modal fade " id="create" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header bg-info">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Dokter Baru</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Tindakan Baru</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('Dokter/create') ?>" method="post">
+                <form action="<?= base_url('Tindakan/create') ?>" method="post">
                     <div class="row">
                         <div class="col">
                             <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-3 col-form-label">ID Dokter</label>
+                                <label for="staticEmail" class="col-sm-3 col-form-label">ID Tindakan</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="id_dokter" value="<?= $id; ?>" required>
+                                    <input type="text" class="form-control" id="staticEmail" name="id_Tindakan" value="<?= $id; ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-3 col-form-label">ID Poliklinik</label>
+                                <label for="staticEmail" class="col-sm-3 col-form-label">Tindakan</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="id_poli" required>
+                                    <input type="text" class="form-control" id="staticEmail" name="nama_supplier" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-3 col-form-label">Nama Lengkap</label>
+                                <label for="staticEmail" class="col-sm-3 col-form-label">Harga</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="nama_dokter" required>
+                                    <input type="text" class="form-control" id="staticEmail" name="harga" required>
                                 </div>
                             </div>
                         </div>
@@ -106,37 +106,37 @@ $id = 'DR' . $date .  $urutan;
         </form>
     </div>
 </div>
-<!-- modal Update dokter -->
-<?php foreach ($view as $r) : ?>
-    <div class="modal fade " id="update<?= $r['id_dokter'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- modal Update Tindakan -->
+<?php foreach ($view as $t) : ?>
+    <div class="modal fade " id="update<?= $t['id_tindakan'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header bg-info">
-                    <h5 class="modal-title" id="exampleModalLabel">Ubah Data Dokter</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Ubah Data Tindakan</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= base_url('Dokter/update') ?>" method="post">
+                    <form action="<?= base_url('Tindakan/update') ?>" method="post">
                         <div class="row">
                             <div class="col">
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col-sm-3 col-form-label">ID Dokter</label>
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">ID Tindakan</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="id_dokter" value="<?= $r['id_dokter'] ?>" required>
+                                        <input type="text" class="form-control" id="staticEmail" name="id_tindakan" value="<?= $t['id_tindakan'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col-sm-3 col-form-label">ID Poliklinik</label>
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">Tindakan</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="id_poli" value="<?= $r['id_poli'] ?>" required>
+                                        <input type="text" class="form-control" id="staticEmail" name="tindakan" value="<?= $t['tindakan'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col-sm-3 col-form-label">Nama Lengkap</label>
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">Harga</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="nama_dokter" value="<?= $r['nama_dokter'] ?>" required>
+                                        <input type="text" class="form-control" id="staticEmail" name="harga" value="<?= $o['harga'] ?>" required>
                                     </div>
                                 </div>
                             </div>
