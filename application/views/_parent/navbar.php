@@ -27,7 +27,7 @@
         </a>
       </li>
 
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown" aria-expanded="false">
           Dokter
         </a>
@@ -36,6 +36,10 @@
           <a class="dropdown-item" href="<?= base_url('auth/logout'); ?>">Logout </a>
 
         </div>
+      </li> -->
+
+      <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('auth/logout');?>"><i class="fas fa-sign-out-alt"></i></a>
       </li>
 
     </ul>
