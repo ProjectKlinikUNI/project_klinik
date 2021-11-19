@@ -12,6 +12,7 @@ class Pasien extends CI_Controller
     public function index()
     {
         $data['view'] = $this->pasien->view();
+        $data['kode'] = $this->pasien->kode();
         $data['title'] = 'Pasien';
         $data['content_wrapper'] = $this->load->view('pasien/pasien', $data, true);
         $this->load->view('main', $data);
@@ -19,6 +20,7 @@ class Pasien extends CI_Controller
     public function create()
     {
         $this->pasien->create();
+        $this->session->flashdata('Message', 'Data Pasien Berhasil Ditambahkan');
         redirect('Pasien');
     }
     public function update()
