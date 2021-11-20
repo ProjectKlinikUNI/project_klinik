@@ -53,7 +53,7 @@ class pasien_model extends CI_Model
     }
     public function kode()
     {
-        $pasien = "SELECT MAX(id) as id_pasien FROM dm_pasien ORDER BY id DESC";
+        $pasien = "SELECT MAX(id_pasien) as id_pasien FROM dm_pasien ORDER BY id_pasien DESC";
         $p = $this->db->query($pasien)->row_array();
         $kode = $p['id_pasien'];
         $noUrut = (int)substr($kode, 6, 4);
