@@ -10,8 +10,8 @@ class pasien_model extends CI_Model
     public function create()
     {
         $data = [
-            'id' => $this->input->post('id'),
-            'nama' => $this->input->post('nama'),
+            'id_pasien' => $this->input->post('id_pasien'),
+            'nama_pasien' => $this->input->post('nama_pasien'),
             'tempat_lahir' => $this->input->post('tempat_lahir'),
             'tgl_lahir' => $this->input->post('tgl_lahir'),
             'jenis_kelamin' => $this->input->post('jenis_kelamin'),
@@ -24,8 +24,8 @@ class pasien_model extends CI_Model
     }
     public function update()
     {
-        $id = $this->input->post('id');
-        $nama = $this->input->post('nama');
+        $id_pasien = $this->input->post('id_pasien');
+        $nama_pasien = $this->input->post('nama_pasien');
         $tempat_lahir = $this->input->post('tempat_lahir');
         $tgl_lahir = $this->input->post('tgl_lahir');
         $jenis_kelamin = $this->input->post('jenis_kelamin');
@@ -41,14 +41,14 @@ class pasien_model extends CI_Model
         $this->db->set('kontak_lain', $kontak_lain);
         $this->db->set('pekerjaan', $pekerjaan);
         $this->db->set('alamat', $alamat);
-        $this->db->set('nama', $nama);
-        $this->db->where('id', $id);
+        $this->db->set('nama_pasien', $nama_pasien);
+        $this->db->where('id_pasien', $id_pasien);
         $this->db->update('dm_pasien');
     }
 
-    public function delete($id)
+    public function delete($id_pasien)
     {
-        $this->db->where('id', $id);
+        $this->db->where('id_pasien', $id_pasien);
         $this->db->delete('dm_pasien');
     }
 }

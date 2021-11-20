@@ -27,7 +27,9 @@
                                 <td><?= $v['id_poli'] ?></td>
                                 <td><?= $v['hari'] ?></td>
                                 <td><?= $v['jam_mulai']   ?> - <?= $v['jam_mulai']   ?></td>
-                                <td class="text-center"><a href="<?= base_url('Jadwal_dokter/update') ?>" data-toggle="modal" data-target="#update<?= $v['id_jadwal'] ?>"><i class="far fa-edit"></i></a> |
+                                <td class="text-center">
+                                    <a href="<?= base_url('Jadwal_dokter/update') ?>" data-toggle="modal" data-target="#update<?= $v['id_jadwal'] ?>"><i class="far fa-edit"></i></a>
+                                    |
                                     <a href="<?= base_url('Jadwal_dokter/update') ?>" data-toggle="modal" data-target="#update<?= $v['id_jadwal'] ?>"><i class="far fa-trash-alt text-danger"></i></a>
                                 </td>
                             </tr>

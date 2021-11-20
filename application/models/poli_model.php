@@ -17,11 +17,9 @@ class poli_model extends CI_Model
     }
     public function update()
     {
-        $id_poli = $this->input->post('id_poli');
         $nama_poli = $this->input->post('nama_poli');
 
         $this->db->set('nama_poli', $nama_poli);
-        $this->db->set('id_poli', $id_poli);
         $this->db->update('dm_poli');
     }
     public function delete($id_poli)

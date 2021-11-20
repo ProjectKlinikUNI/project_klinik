@@ -24,17 +24,14 @@
                         ?>
                             <tr>
                                 <td><?= $i; ?></td>
-                                <td><?= $v['id'] ?></td>
-                                <td><?= $v['nama'] ?></td>
+                                <td><?= $v['id_pasien'] ?></td>
+                                <td><?= $v['nama_pasien'] ?></td>
                                 <td><?= $v['jenis_kelamin'] ?></td>
                                 <td><?= $v['alamat'] ?></td>
                                 <td class="text-center">
+                                    <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id_pasien']; ?>" class="btn btn-warning btn-sm">Edit</a>
 
-                                    <!-- <a href="<?= base_url('dokter/update') ?>" data-toggle="modal" data-target="#update<?= $r['id_dokter'] ?>"><i class="far fa-edit"></i></a> -->
-
-                                    <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
-
-                                    <a href="<?= base_url() . 'pasien/delete/' . $v['id']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin akan menghapus data?')">Hapus</a>
+                                    <a href="<?= base_url() . 'pasien/delete/' . $v['id_pasien']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin akan menghapus data?')">Hapus</a>
 
                                 </td>
                             </tr>
@@ -82,13 +79,13 @@
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">ID Pendaftaran</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="id" value="<?= $kode; ?>" required>
+                                    <input type="text" class="form-control" id="staticEmail" name="id_pasien" value="<?= $kode; ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">Nama Lengkap</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="nama" required>
+                                    <input type="text" class="form-control" id="staticEmail" name="nama_pasien" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -164,7 +161,7 @@
 </div>
 <!-- modal Update Pasien -->
 <?php foreach ($view as $v) : ?>
-    <div class="modal fade " id="update<?= $v['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade " id="update<?= $v['id_pasien'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header bg-info">
@@ -180,13 +177,13 @@
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">ID Pendaftaran</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="id" value="<?= $v['id'] ?>" required>
+                                        <input type="text" class="form-control" id="staticEmail" name="id_pasien" value="<?= $v['id_pasien'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">Nama Lengkap</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="nama" value="<?= $v['nama'] ?>" required>
+                                        <input type="text" class="form-control" id="staticEmail" name="nama_pasien" value="<?= $v['nama_pasien'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -248,7 +245,7 @@
 
 <!-- detail -->
 <?php foreach ($view as $v) : ?>
-    <div class="modal fade " id="detail<?= $v['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade " id="detail<?= $v['id_pasien'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header bg-info">
@@ -264,13 +261,13 @@
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">ID Pendaftaran</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="id" value="<?= $v['id'] ?>" required>
+                                        <input type="text" class="form-control" id="staticEmail" name="id_pasien" value="<?= $v['id_pasien'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">Nama Lengkap</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="nama" value="<?= $v['nama'] ?>" required>
+                                        <input type="text" class="form-control" id="staticEmail" name="nama_pasien" value="<?= $v['nama_pasien'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">

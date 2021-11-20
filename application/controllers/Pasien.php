@@ -12,7 +12,6 @@ class Pasien extends CI_Controller
     public function index()
     {
         $data['view'] = $this->pasien->view();
-        $data['kode'] = $this->pasien->kode();
         $data['title'] = 'Pasien';
         $data['content_wrapper'] = $this->load->view('pasien/pasien', $data, true);
         $this->load->view('main', $data);
@@ -28,9 +27,9 @@ class Pasien extends CI_Controller
         $this->pasien->update();
         redirect('pasien');
     }
-    public function delete($id)
+    public function delete($id_pasien)
     {
-        $this->dokter->delete($id);
+        $this->dokter->delete($id_pasien);
         redirect('pasien');
     }
 }
