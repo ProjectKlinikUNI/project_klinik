@@ -151,14 +151,7 @@
                                     </td>
                                 </tr>
                         </tbody>
-                        <!-- <tfoot>
-                        <tr>
-                            <th>NAMA</th>
-                            <th>JENIS KELAMIN</th>
-                            <th>ALAMAT</th>
-                            <th>AKSI</th>
-                        </tr>
-                    </tfoot> -->
+
                     <?php $i++;
                             endforeach;
                     ?>
@@ -195,14 +188,7 @@
                                     </td>
                                 </tr>
                         </tbody>
-                        <!-- <tfoot>
-                        <tr>
-                            <th>NAMA</th>
-                            <th>JENIS KELAMIN</th>
-                            <th>ALAMAT</th>
-                            <th>AKSI</th>
-                        </tr>
-                    </tfoot> -->
+
                     <?php $i++;
                             endforeach;
                     ?>
