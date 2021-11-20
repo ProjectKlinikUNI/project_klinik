@@ -22,12 +22,9 @@
                                 <td class="text-center"><?= $r['id_dokter'] ?></td>
                                 <td><?= $r['nama_dokter'] ?></td>
                                 <td class="text-center">
-                                    
-                                    <a href="<?= base_url('dokter/update') ?>" data-toggle="modal" data-target="#update<?= $r['id_dokter']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                                   
-                                    <!-- <a href="<?= base_url() . 'dokter/update/' . $r['id_dokter']; ?>" class="btn btn-warning btn-sm">Edit</a> -->
-
-                                    <a href="<?= base_url() . 'dokter/delete/' . $r['id_dokter']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin akan menghapus data?')">Hapus</a>
+                                    <a href="<?= base_url('dokter/update') ?>" data-toggle="modal" data-target="#update<?= $r['id_dokter'] ?>"><i class="far fa-edit"></i></a>
+                                    |
+                                    <a href="<?= base_url() . 'dokter/delete/' . $r['id_dokter']; ?>"><i class="far fa-trash-alt text-danger" onClick="return confirm('Yakin akan menghapus data?')"></i></a>
                                 </td>
                             </tr>
                     </tbody>
@@ -49,9 +46,9 @@
 </div>
 
 <!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create">
-    Launch demo modal
-</button> -->
+<!-- <button type=" button" class="btn btn-primary" data-toggle="modal" data-target="#create">
+                                            Launch demo modal
+                                            </button> -->
 <?php
 $date = date('ydm');
 

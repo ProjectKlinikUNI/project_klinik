@@ -7,10 +7,10 @@
             </div>
             <div class="form-group row ml-2">
                 <div class="col-sm-3">
-                    <select class="form-control" id="idPasien" name="keyword">
+                    <select class="form-control" id="id_pasien" name="keyword">
                         <option></option>
                         <?php foreach ($list as $d) : ?>
-                            <option><?= $d['id'] ?></option>
+                            <option><?= $d['id_pasien'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -27,13 +27,13 @@
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-4 col-form-label">Id Pasien</label>
                                 <div class="col-sm-8">
-                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?= $pasien['id'] ?>" name="id_pasien">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?= $pasien['id_pasien'] ?>" name="id_pasien">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-4 col-form-label">Nama</label>
                                 <div class="col-sm-8">
-                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?= $pasien['nama'] ?>" name="nama">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?= $pasien['nama_pasien'] ?>" name="nama_pasien">
                                 </div>
                             </div>
                             <div class="form-group row">

@@ -18,14 +18,13 @@
                         foreach ($view as $p) :
                         ?>
                             <tr>
-                                <td><?= $no; ?></td>
-                                <td><?= $p['id_poli'] ?></td>
+                                <td class="text-center"><?= $no; ?></td>
+                                <td class="text-center"><?= $p['id_poli'] ?></td>
                                 <td><?= $p['nama_poli'] ?></td>
                                 <td class="text-center">
-                                    <!-- <a href="<?= base_url('poli/update') ?>" data-toggle="modal" data-target="#update<?= $p['id_poli'] ?>"><i class="far fa-edit"></i></a> -->
-                                    <a href="<?= base_url() . 'poli/update/' . $p['id_poli']; ?>" class="btn btn-warning btn-sm">Edit</a>
-
-                                    <a href="<?= base_url() . 'poli/delete/' . $p['id_poli']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin akan menghapus data?')">Hapus</a>
+                                    <a href="<?= base_url('poli/update') ?>" data-toggle="modal" data-target="#update<?= $p['id_poli'] ?>"><i class="far fa-edit"></i></a>
+                                    |
+                                    <a href="<?= base_url() . 'poli/delete/' . $p['id_poli']; ?>"><i class="far fa-trash-alt text-danger" onClick="return confirm('Yakin akan menghapus data?')"></i></a>
                                 </td>
                             </tr>
                     </tbody>
@@ -50,17 +49,17 @@
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create">
     Launch demo modal
 </button> -->
-<?php
-$date = date('ydm');
+<!-- <?php
+        // $date = date('ydm');
 
-$urutan = 1;
-$urutan++;
-$no = 'PK' . $date .  $urutan;
-
-
+        // $urutan = 1;
+        // $urutan++;
+        // $no = 'PK' . $date .  $urutan;
 
 
-?>
+
+
+        ?> -->
 <!-- Modal Data Poliklinik -->
 <div class="modal fade " id="create" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
@@ -75,12 +74,12 @@ $no = 'PK' . $date .  $urutan;
                 <form action="<?= base_url('Poli/create') ?>" method="post">
                     <div class="row">
                         <div class="col">
-                            <div class="form-group row">
+                            <!-- <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">ID Poliklinik</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" id="staticEmail" name="id_poli" value="<?= $no ?>" required>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">Poliklinik</label>
                                 <div class="col-sm-8">
@@ -113,12 +112,12 @@ $no = 'PK' . $date .  $urutan;
                     <form action="<?= base_url('Poli/update') ?>" method="post">
                         <div class="row">
                             <div class="col">
-                                <div class="form-group row">
+                                <!-- <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">ID Poliklinik</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" id="staticEmail" name="id_poli" value="<?= $p['id_poli'] ?>" required>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">Poliklinik</label>
                                     <div class="col-sm-8">
