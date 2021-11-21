@@ -27,9 +27,8 @@
                                 <td><?= $v['username'] ?></td>
                                 <td><?= $v['rule_name'] ?></td>
                                 <td class="text-center">
-                                    <a href="<?= base_url('users/update') ?>" data-toggle="modal" data-target="#update<?= $v['id_users']; ?>" class="btn btn-warning btn-sm">Edit</a>
-
-                                    <a href="<?= base_url() . 'users/delete/' . $v['id_users']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin akan menghapus data?')">Hapus</a>
+                                    <a href="<?= base_url('users/update') ?>" data-toggle="modal" data-target="#update<?= $v['id_users']; ?>"> <i class="far fa-edit"></i></a>|
+                                    <a href="<?= base_url() . 'users/delete/' . $v['id_users']; ?>"><i class="far fa-trash-alt text-danger" onClick="return confirm('Yakin akan menghapus data?')"></i></a>
 
                                 </td>
                             </tr>

@@ -13,7 +13,7 @@ class users_modal extends CI_Model
         $data = [
             'id_users' => $this->input->post('id_users'),
             'username' => $this->input->post('username'),
-            'password' => $this->input->post('password'),
+            'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
             'ruleid' => $this->input->post('ruleid'),
             'active' => $this->input->post('active'),
         ];
@@ -30,11 +30,11 @@ class users_modal extends CI_Model
         $this->db->set('active', $active);
         $this->db->set('username', $username);
         $this->db->where('id_users', $id_users);
-        $this->db->update('dm_obat');
+        $this->db->update('sys_users');
     }
     public function delete($id_users)
     {
         $this->db->where('id_users', $id_users);
-        $this->db->update('dm_obat');
+        $this->db->delete('sys_users');
     }
 }

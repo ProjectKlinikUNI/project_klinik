@@ -29,7 +29,7 @@ class Users extends CI_Controller
     }
     public function delete($id_pengguna)
     {
-        $this->users->delete();
+        $this->users->delete($id_pengguna);
         redirect('Users');
     }
 }
