@@ -1,6 +1,6 @@
 <div class="content-wrapper mt-5">
     <div class="container ">
-        <button class="btn btn-info ml-3 mt-3" data-toggle="modal" data-target="#create">Tambah Pasien Baru</button>
+        <button class="btn btn-info ml-3 mt-3" data-toggle="modal" data-target="#create">Daftar Pasien Baru</button>
         <div class="card border-info ml-3 mt-3">
             <!-- <div class="card-header "></div> -->
             <div class="card-body ">
@@ -242,7 +242,59 @@
 </div>
 </div>
 
-
+<!-- Modal Create -->
+<div class="modal fade" id="create" tabindex="-1" aria-labelledby="diagnosaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="diagnosaLabel">Diagnosa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table id="table" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr class="align-middle">
+                            <th>NO</th>
+                            <th>NO ANTRIAN</th>
+                            <th>TANGGAL PENDAFTARAN</th>
+                            <th>ID PASIEN</th>
+                            <th>NAMA PASIEN</th>
+                            <th>JENIS LAYANAN</th>
+                            <th>JENIS POLI</th>
+                            <th>DOKTER</th>
+                            <th>AKSI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1;
+                        foreach ($view as $v) :
+                        ?>
+                            <tr>
+                                <td><?= $i; ?></td>
+                                <td><?= $v['no_antrian'] ?></td>
+                                <td><?= $v['tanggal_kunjungan'] ?></td>
+                                <td><?= $v['nama_pasien'] ?></td>
+                                <td><?= $v['id_pasien'] ?></td>
+                                <td><?= $v['layanan'] ?></td>
+                                <td><?= $v['nama_poli'] ?></td>
+                                <td><?= $v['nama_dokter'] ?></td>
+                                <td class="text-center"><a href="<?= base_url('Input_tindakan/') . $v['id_kunjungan'] ?>"><i class="far fa-edit"></i></a></td>
+                            </tr>
+                    </tbody>
+                <?php $i++;
+                        endforeach;
+                ?>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Modal Diagnosa -->
 <div class="modal fade" id="penyakit" tabindex="-1" aria-labelledby="diagnosaLabel" aria-hidden="true">
