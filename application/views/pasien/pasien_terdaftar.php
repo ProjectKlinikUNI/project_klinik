@@ -97,6 +97,10 @@
                                     </div>
                                 </div>
                                 <div class="text-right">
+                                    <button class="btn btn-info" data-toggle="modal" data-target="#antrian"> Simpan </button>
+                                    <?php
+                                    $kunjungan = $this->db->get_where('tbl_kunjungan', ['id_kunjungan' => null])->row_array();
+                                    ?>
                                     <button class="btn btn-info" data-toggle="modal" data-target="#antrian">Cetak Nomor Antrian </button>
                                 </div>
                             </form>
