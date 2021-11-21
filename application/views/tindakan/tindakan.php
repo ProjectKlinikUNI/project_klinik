@@ -47,21 +47,6 @@
     </div>
 </div>
 
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create">
-    Launch demo modal
-</button> -->
-<?php
-$date = date('ydm');
-
-$urutan = 1;
-$urutan++;
-$id = 'TIN' . $date .  $urutan;
-
-
-
-
-?>
 <!-- Modal Data Tindakan -->
 <div class="modal fade " id="create" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
@@ -76,16 +61,16 @@ $id = 'TIN' . $date .  $urutan;
                 <form action="<?= base_url('Tindakan/create') ?>" method="post">
                     <div class="row">
                         <div class="col">
-                            <div class="form-group row">
+                            <!-- <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">ID Tindakan</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" id="staticEmail" name="id_Tindakan" value="<?= $id; ?>" required>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">Tindakan</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="nama_supplier" required>
+                                    <input type="text" class="form-control" id="staticEmail" name="tindakan" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -123,7 +108,7 @@ $id = 'TIN' . $date .  $urutan;
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">ID Tindakan</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="id_tindakan" value="<?= $t['id_tindakan'] ?>" required>
+                                        <input type="text" readonly class="form-control" id="staticEmail" name="id_tindakan" value="<?= $t['id_tindakan'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">

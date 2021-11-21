@@ -12,6 +12,9 @@ class supplier_model extends CI_Model
         $data = [
             'id_supplier' => $this->input->post('id_supplier'),
             'nama_supplier' => $this->input->post('nama_supplier'),
+            'pic' => $this->input->post('pic'),
+            'no_hp' => $this->input->post('no_hp'),
+            'alamat' => $this->input->post('alamat'),
         ];
         $this->db->insert('dm_supplier', $data);
     }
@@ -19,9 +22,16 @@ class supplier_model extends CI_Model
     {
         $id_supplier = $this->input->post('id_supplier');
         $nama_supplier = $this->input->post('nama_supplier');
+        $pic = $this->input->post('pic');
+        $no_hp = $this->input->post('no_hp');
+        $alamat = $this->input->post('alamat');
 
+        $this->db->set('alamat', $alamat);
+        $this->db->set('no_hp', $no_hp);
+        $this->db->set('pic', $pic);
         $this->db->set('nama_supplier', $nama_supplier);
         $this->db->set('id_supplier', $id_supplier);
+        $this->db->where('id_supplier', $id_supplier);
         $this->db->update('dm_supplier');
     }
     public function delete($id_supplier)

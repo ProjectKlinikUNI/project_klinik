@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Pasien extends CI_Controller
+class Pasien_baru extends CI_Controller
 {
     public function __construct()
     {
@@ -14,23 +14,13 @@ class Pasien extends CI_Controller
         $data['view'] = $this->pasien->view();
         $data['kode'] = $this->pasien->kode();
         $data['title'] = 'Pasien';
-        $data['content_wrapper'] = $this->load->view('pasien/pasien', $data, true);
+        $data['content_wrapper'] = $this->load->view('pasien/pasien_baru', $data, true);
         $this->load->view('main', $data);
     }
     public function create()
     {
         $this->pasien->create();
         $this->session->flashdata('Message', 'Data Pasien Berhasil Ditambahkan');
-        redirect('Pasien');
-    }
-    public function update()
-    {
-        $this->pasien->update();
-        redirect('pasien');
-    }
-    public function delete($id_pasien)
-    {
-        $this->pasien->delete($id_pasien);
-        redirect('pasien');
+        redirect('pasien_baru');
     }
 }

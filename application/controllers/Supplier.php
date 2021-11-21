@@ -12,14 +12,14 @@ class Supplier extends CI_Controller
     public function index()
     {
         $data['view'] = $this->supplier->view();
-        $data['title'] = 'Supplier';
+        $data['title'] = 'supplier';
         $data['content_wrapper'] = $this->load->view('supplier/supplier', $data, true);
         $this->load->view('main', $data);
     }
     public function create()
     {
         $this->supplier->create();
-        redirect('Supplier');
+        redirect('supplier');
     }
     public function update()
     {

@@ -12,6 +12,7 @@ class Dokter extends CI_Controller
     public function index()
     {
         $data['view'] = $this->dokter->view();
+        $data['kode'] = $this->dokter->kode();
         $data['title'] = 'Dokter';
         $data['content_wrapper'] = $this->load->view('dokter/dokter', $data, true);
         $this->load->view('main', $data);
@@ -19,6 +20,7 @@ class Dokter extends CI_Controller
     public function create()
     {
         $this->dokter->create();
+        $this->session->flashdata('Message', 'Data Dokter Berhasil Ditambahkan');
         redirect('Dokter');
     }
     public function update()

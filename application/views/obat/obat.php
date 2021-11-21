@@ -29,7 +29,11 @@
                                 <td><?= $o['kategori'] ?></td>
                                 <td><?= $o['stock'] ?></td>
                                 <td><?= $o['harga'] ?></td>
-                                <td class="text-center"><a href="<?= base_url('obat/update') ?>" data-toggle="modal" data-target="#update<?= $o['id_obat'] ?>"><i class="far fa-edit"></i></a></td>
+                                <td class="text-center">
+                                    <a href="<?= base_url('obat/update') ?>" data-toggle="modal" data-target="#update<?= $o['id_obat'] ?>"><i class="far fa-edit"></i></a>
+                                    |
+                                    <a href="<?= base_url() . 'obat/delete/' . $o['id_obat']; ?>"><i class="far fa-trash-alt text-danger" onClick="return confirm('Yakin akan menghapus data?')"></i></a>
+                                </td>
                             </tr>
                     </tbody>
                     <!-- <tfoot>
@@ -49,21 +53,7 @@
     </div>
 </div>
 
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create">
-    Launch demo modal
-</button> -->
-<?php
-$date = date('ydm');
 
-$urutan = 1;
-$urutan++;
-$id = 'OBT' . $date .  $urutan;
-
-
-
-
-?>
 <!-- Modal Data Obat -->
 <div class="modal fade " id="create" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
@@ -81,7 +71,7 @@ $id = 'OBT' . $date .  $urutan;
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">ID Obat</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="id_obat" value="<?= $id; ?>" required>
+                                    <input type="text" class="form-control" id="staticEmail" name="id_obat" value="<?= $kode; ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -143,7 +133,7 @@ $id = 'OBT' . $date .  $urutan;
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">ID Obat</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="id_obat" value="<?= $o['id_obat'] ?>" required>
+                                        <input type="text" readonly class="form-control" id="staticEmail" name="id_obat" value="<?= $o['id_obat'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">

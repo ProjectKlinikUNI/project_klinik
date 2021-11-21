@@ -12,14 +12,14 @@ class Tindakan extends CI_Controller
     public function index()
     {
         $data['view'] = $this->tindakan->view();
-        $data['title'] = 'Tindakan';
+        $data['title'] = 'tindakan';
         $data['content_wrapper'] = $this->load->view('tindakan/tindakan', $data, true);
         $this->load->view('main', $data);
     }
     public function create()
     {
         $this->tindakan->create();
-        redirect('Tindakan');
+        redirect('tindakan');
     }
     public function update()
     {

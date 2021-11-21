@@ -1,6 +1,9 @@
 <div class="content-wrapper mt-5">
     <div class="container ">
+        <div class="message" data-message="<?= $this->session->flashdata('message') ?>"></div>
+
         <button class="btn btn-info ml-3 mt-3" data-toggle="modal" data-target="#create">Tambah Dokter Baru</button>
+        <?= $this->session->flashdata('message') ?>
         <div class="card border-info ml-3 mt-3">
             <!-- <div class="card-header "></div> -->
             <div class="card-body ">
@@ -9,6 +12,7 @@
                         <tr class="text-center">
                             <th>NO</th>
                             <th>ID DOKTER</th>
+                            <th>ID POLIKLINIK</th>
                             <th>NAMA DOKTER</th>
                             <th>AKSI</th>
                         </tr>
@@ -20,6 +24,7 @@
                             <tr>
                                 <td class="text-center"><?= $i; ?></td>
                                 <td class="text-center"><?= $r['id_dokter'] ?></td>
+                                <td><?= $r['id_poli'] ?></td>
                                 <td><?= $r['nama_dokter'] ?></td>
                                 <td class="text-center">
                                     <a href="<?= base_url('dokter/update') ?>" data-toggle="modal" data-target="#update<?= $r['id_dokter'] ?>"><i class="far fa-edit"></i></a>
@@ -28,14 +33,6 @@
                                 </td>
                             </tr>
                     </tbody>
-                    <!-- <tfoot>
-                        <tr>
-                            <th>NAMA</th>
-                            <th>JENIS KELAMIN</th>
-                            <th>ALAMAT</th>
-                            <th>AKSI</th>
-                        </tr>
-                    </tfoot> -->
                 <?php $i++;
                         endforeach;
                 ?>
@@ -45,21 +42,6 @@
     </div>
 </div>
 
-<!-- Button trigger modal -->
-<!-- <button type=" button" class="btn btn-primary" data-toggle="modal" data-target="#create">
-                                            Launch demo modal
-                                            </button> -->
-<?php
-$date = date('ydm');
-
-$urutan = 1;
-$urutan++;
-$id = 'DR' . $date .  $urutan;
-
-
-
-
-?>
 <!-- Modal Data Dokter -->
 <div class="modal fade " id="create" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
@@ -77,7 +59,7 @@ $id = 'DR' . $date .  $urutan;
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">ID Dokter</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="staticEmail" name="id_dokter" value="<?= $id; ?>" required>
+                                    <input type="text" class="form-control" id="staticEmail" name="id_dokter" value="<?= $kode; ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -103,6 +85,7 @@ $id = 'DR' . $date .  $urutan;
         </form>
     </div>
 </div>
+
 <!-- modal Update dokter -->
 <?php foreach ($view as $r) : ?>
     <div class="modal fade " id="update<?= $r['id_dokter'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -121,7 +104,7 @@ $id = 'DR' . $date .  $urutan;
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">ID Dokter</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="id_dokter" value="<?= $r['id_dokter'] ?>" required>
+                                        <input type="text" readonly class="form-control" id="staticEmail" name="id_dokter" value="<?= $r['id_dokter'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">

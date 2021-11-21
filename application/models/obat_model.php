@@ -36,4 +36,21 @@ class obat_model extends CI_Model
         $this->db->where('id_obat', $id_obat);
         $this->db->update('dm_obat');
     }
+    public function delete($id_obat)
+    {
+        $this->db->where('id_obat', $id_obat);
+        $this->db->delete('dm_obat');
+    }
+    public function kode()
+    {
+        $obat = "SELECT MAX(id_obat) as id_obat FROM dm_obat ORDER BY id_obat DESC";
+        $p = $this->db->query($obat)->row_array();
+        $kode = $p['id_obat'];
+        $noUrut = (int)substr($kode, 6, 4);
+        $noUrut++;
+        $char = "OBT";
+        $date = date('Y');
+        $kodeObat = $char . $date . sprintf("%04s", $noUrut);
+        return $kodeObat;
+    }
 }

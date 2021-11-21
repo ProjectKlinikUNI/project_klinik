@@ -10,6 +10,9 @@
                             <th>NO</th>
                             <th>ID SUPPLIER</th>
                             <th>NAMA SUPPLIER</th>
+                            <th>PIC</th>
+                            <th>NO HANDPHONE</th>
+                            <th>ALAMAT</th>
                             <th>AKSI</th>
                         </tr>
                     </thead>
@@ -21,13 +24,13 @@
                                 <td class="text-center"><?= $i; ?></td>
                                 <td class="text-center"><?= $s['id_supplier'] ?></td>
                                 <td><?= $s['nama_supplier'] ?></td>
+                                <td><?= $s['pic'] ?></td>
+                                <td><?= $s['no_hp'] ?></td>
+                                <td><?= $s['alamat'] ?></td>
                                 <td class="text-center">
-                                    
-                                    <a href="<?= base_url('supplier/update') ?>" data-toggle="modal" data-target="#update<?= $s['id_supplier']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                                   
-                                    <!-- <a href="<?= base_url() . 'supplier/update/' . $s['id_supplier']; ?>" class="btn btn-warning btn-sm">Edit</a> -->
-
-                                    <a href="<?= base_url() . 'supplier/delete/' . $s['id_supplier']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin akan menghapus data?')">Hapus</a>
+                                    <a href="<?= base_url('supplier/update') ?>" data-toggle="modal" data-target="#update<?= $s['id_supplier'] ?>"><i class="far fa-edit"></i></a>
+                                    |
+                                    <a href="<?= base_url() . 'supplier/delete/' . $s['id_supplier']; ?>"><i class="far fa-trash-alt text-danger" onClick="return confirm('Yakin akan menghapus data?')"></i></a>
                                 </td>
                             </tr>
                     </tbody>
@@ -52,17 +55,17 @@
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create">
     Launch demo modal
 </button> -->
-<?php
-$date = date('ydm');
+<!-- <?php
+        // $date = date('ydm');
 
-$urutan = 1;
-$urutan++;
-$id = 'SUP' . $date .  $urutan;
-
-
+        // $urutan = 1;
+        // $urutan++;
+        // $id = 'SUP' . $date .  $urutan;
 
 
-?>
+
+
+        ?> -->
 <!-- Modal Data Supplier -->
 <div class="modal fade " id="create" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
@@ -77,16 +80,34 @@ $id = 'SUP' . $date .  $urutan;
                 <form action="<?= base_url('Supplier/create') ?>" method="post">
                     <div class="row">
                         <div class="col">
-                            <div class="form-group row">
+                            <!-- <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">ID Supplier</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" id="staticEmail" name="id_supplier" value="<?= $id; ?>" required>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group row">
                                 <label for="staticEmail" class="col-sm-3 col-form-label">Nama Supplier</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" id="staticEmail" name="nama_supplier" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-3 col-form-label">PIC</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="staticEmail" name="pic" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-3 col-form-label">No Handphone</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="staticEmail" name="no_hp" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-3 col-form-label">Alamat</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="staticEmail" name="alamat" required>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +121,7 @@ $id = 'SUP' . $date .  $urutan;
         </form>
     </div>
 </div>
-<!-- modal Update dokter -->
+<!-- modal Update Supplier -->
 <?php foreach ($view as $s) : ?>
     <div class="modal fade " id="update<?= $s['id_supplier'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
@@ -118,13 +139,31 @@ $id = 'SUP' . $date .  $urutan;
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">ID Supplier</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="id_Supplier" value="<?= $s['id_supplier'] ?>" required>
+                                        <input type="text" readonly class="form-control" id="staticEmail" name="id_supplier" value="<?= $s['id_supplier'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">Nama Supplier</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" id="staticEmail" name="nama_supplier" value="<?= $s['nama_supplier'] ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">No Handphone</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="staticEmail" name="no_hp" value="<?= $s['no_hp'] ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">PIC</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="staticEmail" name="pic" value="<?= $s['pic'] ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">Alamat</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="staticEmail" name="alamat" value="<?= $s['alamat'] ?>" required>
                                     </div>
                                 </div>
                             </div>

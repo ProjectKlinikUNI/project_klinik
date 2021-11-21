@@ -25,11 +25,24 @@ class dokter_model extends CI_Model
         $this->db->set('nama_dokter', $nama_dokter);
         $this->db->set('id_poli', $id_poli);
         $this->db->set('id_dokter', $id_dokter);
+        $this->db->where('id_dokter', $id_dokter);
         $this->db->update('dm_dokter');
     }
     public function delete($id_dokter)
     {
         $this->db->where('id_dokter', $id_dokter);
         $this->db->delete('dm_dokter');
+    }
+    public function kode()
+    {
+        $dokter = "SELECT MAX(id_dokter) as id_dokter FROM dm_dokter ORDER BY id_dokter DESC";
+        $p = $this->db->query($dokter)->row_array();
+        $kode = $p['id_dokter'];
+        $noUrut = (int)substr($kode, 6, 4);
+        $noUrut++;
+        $char = "DR";
+        $date = date('Y');
+        $kodeDokter = $char . $date . sprintf("%04s", $noUrut);
+        return $kodeDokter;
     }
 }

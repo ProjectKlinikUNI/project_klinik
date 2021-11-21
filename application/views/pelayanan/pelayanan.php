@@ -8,7 +8,7 @@
                     <thead>
                         <tr class="text-center">
                             <th>NO</th>
-                            <!-- <th>ID PELAYANAN</th> -->
+                            <th>ID PELAYANAN</th>
                             <th>JENIS LAYANAN</th>
                             <th>HARGA</th>
                             <th>AKSI</th>
@@ -20,14 +20,13 @@
                         ?>
                             <tr>
                                 <td class="text-center"><?= $i; ?></td>
-                                <!-- <td class="text-center"><?= $l['id_pelayanan'] ?></td> -->
+                                <td class="text-center"><?= $l['id_pelayanan'] ?></td>
                                 <td><?= $l['jenis_layanan'] ?></td>
                                 <td><?= $l['harga'] ?></td>
                                 <td class="text-center">
-
-                                    <a href="<?= base_url('pelayanan/update') ?>" data-toggle="modal" data-target="#update<?= $l['id_pelayanan']; ?>" class="btn btn-warning btn-sm">Edit</a>
-
-                                    <a href="<?= base_url() . 'pelayanan/delete/' . $l['id_pelayanan']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin akan menghapus data?')">Hapus</a>
+                                    <a href="<?= base_url('pelayanan/update') ?>" data-toggle="modal" data-target="#update<?= $l['id_pelayanan'] ?>"><i class="far fa-edit"></i></a>
+                                    |
+                                    <a href="<?= base_url() . 'pelayanan/delete/' . $l['id_pelayanan']; ?>"><i class="far fa-trash-alt text-danger" onClick="return confirm('Yakin akan menghapus data?')"></i></a>
                                 </td>
                             </tr>
                     </tbody>
@@ -121,12 +120,12 @@
                     <form action="<?= base_url('Pelayanan/update') ?>" method="post">
                         <div class="row">
                             <div class="col">
-                                <!-- <div class="form-group row">
+                                <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">ID Pelayanan</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="id_pelayanan" value="<?= $l['id_pelayanan'] ?>" required>
+                                        <input type="text" readonly class="form-control" id="staticEmail" name="id_pelayanan" value="<?= $l['id_pelayanan'] ?>" required>
                                     </div>
-                                </div> -->
+                                </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">Jenis Layanan</label>
                                     <div class="col-sm-8">

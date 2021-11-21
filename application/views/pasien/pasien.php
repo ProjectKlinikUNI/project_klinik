@@ -1,42 +1,44 @@
 <div class="content-wrapper mt-5">
-    <div class="container ">
-        <div class="message" data-message="<?= $this->session->flashdata('message') ?>"></div>
+    <div class="container-fluid ">
+        <!-- <div class="message" data-message="<?= $this->session->flashdata('message') ?>"></div> -->
 
-        <button class="btn btn-info ml-3 mt-3" data-toggle="modal" data-target="#create">Tambah Pasien Baru</button>
-        <?= $this->session->flashdata('message') ?>
-        <div class="card border-info ml-3 mt-3">
-            <!-- <div class="card-header "></div> -->
-            <div class="card-body ">
-                <table id="table" class="table table-striped table-bordered" style="width:100%">
-                    <thead>
-                        <tr class="text-center">
-                            <th>NO</th>
-                            <th>ID PENDAFTARAN</th>
-                            <th>NAMA</th>
-                            <th>JENIS KELAMIN</th>
-                            <th>ALAMAT</th>
-                            <th>AKSI</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $i = 1;
-                        foreach ($view as $v) :
-                        ?>
-                            <tr>
-                                <td><?= $i; ?></td>
-                                <td><?= $v['id_pasien'] ?></td>
-                                <td><?= $v['nama_pasien'] ?></td>
-                                <td><?= $v['jenis_kelamin'] ?></td>
-                                <td><?= $v['alamat'] ?></td>
-                                <td class="text-center">
-                                    <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id_pasien']; ?>" class="btn btn-warning btn-sm">Edit</a>
-
-                                    <a href="<?= base_url() . 'pasien/delete/' . $v['id_pasien']; ?>" class="btn btn-danger btn-sm" onClick="return confirm('Yakin akan menghapus data?')">Hapus</a>
-
-                                </td>
+        <!-- <button class="btn btn-info ml-3 mt-3" data-toggle="modal" data-target="#create">Tambah Pasien Baru</button>
+        <?= $this->session->flashdata('message') ?> -->
+        <div class="card border-primary">
+            <div class="card border-info ml-3 mt-3">
+                <div class="card-header bg-info "> DATA PASIEN</div>
+                <div class="card-body ">
+                    <table id="table" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr class="text-center">
+                                <th>NO</th>
+                                <th>ID PASIEN</th>
+                                <th>NAMA</th>
+                                <th>JENIS KELAMIN</th>
+                                <th>ALAMAT</th>
+                                <th>AKSI</th>
                             </tr>
-                    </tbody>
-                    <!-- <tfoot>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1;
+                            foreach ($view as $v) :
+                            ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $v['id_pasien'] ?></td>
+                                    <td><?= $v['nama_pasien'] ?></td>
+                                    <td><?= $v['jenis_kelamin'] ?></td>
+                                    <td><?= $v['alamat'] ?></td>
+                                    <td class="text-center">
+                                        <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id_pasien'] ?>"><i class="far fa-edit"></i></a>
+                                        |
+                                        <a href="<?= base_url('pasien/detail') ?>" data-toggle="modal" data-target="#detail<?= $v['id_pasien'] ?>"><i class="far fa-sticky-note"></i></a>
+                                        <!-- |
+                                        <a href="<?= base_url() . 'pasien/delete/' . $v['id_pasien']; ?>"><i class="far fa-trash-alt text-danger" onClick="return confirm('Yakin akan menghapus data?')"></i></a> -->
+                                    </td>
+                                </tr>
+                        </tbody>
+                        <!-- <tfoot>
                         <tr>
                             <th>NAMA</th>
                             <th>JENIS KELAMIN</th>
@@ -44,10 +46,11 @@
                             <th>AKSI</th>
                         </tr>
                     </tfoot> -->
-                <?php $i++;
-                        endforeach;
-                ?>
-                </table>
+                    <?php $i++;
+                            endforeach;
+                    ?>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -77,7 +80,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-3 col-form-label">ID Pendaftaran</label>
+                                <label for="staticEmail" class="col-sm-3 col-form-label">ID Pasien</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" id="staticEmail" name="id_pasien" value="<?= $kode; ?>" required>
                                 </div>
@@ -106,19 +109,18 @@
                                     <div class="form-check">
                                         <div class="row">
                                             <div class="col">
-                                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="exampleRadios1" value="Laki-Laki" checked>
+                                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="exampleRadios1" value="Laki-Laki">
                                                 <label class="form-check-label" for="exampleRadios1">
                                                     Laki-Laki
                                                 </label>
                                             </div>
                                             <div class="col">
-                                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="exampleRadios1" value="Perempuan" checked>
+                                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="exampleRadios1" value="Perempuan">
                                                 <label class="form-check-label" for="exampleRadios1">
                                                     Perempuan
                                                 </label>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -177,7 +179,7 @@
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">ID Pendaftaran</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="id_pasien" value="<?= $v['id_pasien'] ?>" required>
+                                        <input type="text" readonly class="form-control" id="staticEmail" name="id_pasien" value="<?= $v['id_pasien'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -201,7 +203,23 @@
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="jenis_kelamin" value="<?= $v['jenis_kelamin'] ?>" required>
+                                        <!-- <input type="text" class="form-control" id="staticEmail" name="jenis_kelamin" value="<?= $v['jenis_kelamin'] ?>" required> -->
+                                        <div class="form-check">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="exampleRadios1" value="Laki-Laki">
+                                                    <label class="form-check-label" for="exampleRadios1">
+                                                        Laki-Laki
+                                                    </label>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="exampleRadios1" value="Perempuan">
+                                                    <label class="form-check-label" for="exampleRadios1">
+                                                        Perempuan
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -25,6 +25,7 @@ class tindakan_model extends CI_Model
         $this->db->set('harga', $harga);
         $this->db->set('tindakan', $tindakan);
         $this->db->set('id_tindakan', $id_tindakan);
+        $this->db->where('id_tindakan', $id_tindakan);
         $this->db->update('dm_tindakan');
     }
     public function delete($id_tindakan)
