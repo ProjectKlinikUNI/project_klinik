@@ -51,11 +51,12 @@
                                             <label for="staticEmail" class="col-sm-4 col-form-label">Poli Klinik</label>
                                             <div class="col-sm-8">
                                                 <select class="form-control" id="exampleFormControlSelect1" name="id_poliklinik">
-                                                    <option value="1"></option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
+                                                    <option></option>
+                                                    <?php $dokter = $this->db->get('dm_poli')->result_array();
+                                                    foreach ($dokter as $d) :
+                                                    ?>
+                                                        <option value="<?= $d['id_poli'] ?>"><?= $d['nama_poli'] ?></option>
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -63,11 +64,12 @@
                                             <label for="inputPassword" class="col-sm-4 col-form-label">Dokter</label>
                                             <div class="col-sm-8">
                                                 <select class="form-control" id="exampleFormControlSelect1" name="id_dokter">
-                                                    <option value="1">1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
+                                                    <option></option>
+                                                    <?php $dokter = $this->db->get('dm_dokter')->result_array();
+                                                    foreach ($dokter as $d) :
+                                                    ?>
+                                                        <option value="<?= $d['id_dokter'] ?>"><?= $d['nama_dokter'] ?></option>
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </div>
                                         </div>
