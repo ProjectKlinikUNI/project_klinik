@@ -5,7 +5,11 @@ class jadwal_dokter_model extends CI_Model
 {
     public function view()
     {
-        $v = "SELECT *, dm_dokter.nama_dokter, dm_poli.nama_poli FROM tbl_jadwal_dokter JOIN dm_dokter ON dm_dokter.id_dokter = tbl_jadwal_dokter.id_dokter JOIN dm_poli ON dm_poli.id_poli = tbl_jadwal_dokter.id_poli";
+        $v = "SELECT *, dm_dokter.nama_dokter, dm_poli.nama_poli 
+                FROM tbl_jadwal_dokter JOIN dm_dokter 
+                  ON dm_dokter.id_dokter = tbl_jadwal_dokter.id_dokter JOIN dm_poli 
+                  ON dm_poli.id_poli = tbl_jadwal_dokter.id_poli";
+
         return $this->db->query($v)->result_array();
     }
     public function create()

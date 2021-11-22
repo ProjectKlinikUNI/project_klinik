@@ -1,12 +1,11 @@
 <div class="content-wrapper mt-5">
-    <div class="container ">
+    <div class="container-fluid ">
         <div class="card border-primary">
             <div class="card border-info ml-3 mt-3">
                 <div class="card-header bg-info ">DAFTAR PASIEN</div>
                 <div class="card-body ">
                     <form action="<?= base_url('Pasien_terdaftar') ?>" method="post">
                         <div class="form-group row">
-
                         </div>
                         <div class="form-group row ml-2">
                             <div class="col-sm-3">

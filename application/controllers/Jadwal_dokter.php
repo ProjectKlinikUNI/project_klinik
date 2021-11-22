@@ -18,6 +18,14 @@ class Jadwal_dokter extends CI_Controller
         $data['content_wrapper'] = $this->load->view('jadwal/jadwal_dokter', $data, true);
         $this->load->view('main', $data);
     }
+
+    public function list()
+    {
+        $output = $this->jadwal->view();
+
+        echo json_encode($output);
+    }
+
     public function create()
     {
         $this->jadwal->create();
