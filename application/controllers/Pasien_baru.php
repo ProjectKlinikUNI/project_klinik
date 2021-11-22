@@ -11,8 +11,9 @@ class Pasien_baru extends CI_Controller
 
     public function index()
     {
-        $data['view'] = $this->pasien->view();
+        $data['pasien'] = $this->pasien->view();
         $data['kode'] = $this->pasien->kode();
+        $data['list'] = $this->pasien->listPasien();
         $data['title'] = 'Pasien';
         $data['content_wrapper'] = $this->load->view('pasien/pasien_baru', $data, true);
         $this->load->view('main', $data);
@@ -22,5 +23,10 @@ class Pasien_baru extends CI_Controller
         $this->pasien->create();
         $this->session->flashdata('Message', 'Data Pasien Berhasil Ditambahkan');
         redirect('pasien_baru');
+    }
+    public function printPasien()
+    {
+        $this->pasien->create();
+        redirect('Pasien');
     }
 }
