@@ -6,13 +6,12 @@ class Pasien_baru extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('pasien_model', 'pasien');
+        $this->load->model('pasien_baru_model', 'pasien');
     }
 
     public function index()
     {
         $data['pasien'] = $this->pasien->view();
-        $data['kode'] = $this->pasien->kode();
         $data['list'] = $this->pasien->listPasien();
         $data['title'] = 'Pasien';
         $data['content_wrapper'] = $this->load->view('pasien/pasien_baru', $data, true);
