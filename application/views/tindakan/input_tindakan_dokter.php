@@ -129,8 +129,6 @@
                         <thead>
                             <tr class="text-center">
                                 <th>NO</th>
-                                <th>KODE</th>
-                                <th>ICD</th>
                                 <th>DIAGNOSA</th>
                                 <th>KETERANGAN</th>
                                 <th>AKSI</th>
@@ -138,17 +136,15 @@
                         </thead>
                         <tbody>
                             <?php $i = 1;
-                            foreach ($view as $v) :
+                            // $diagnosa = $this->db->get('dm_diagnosa')->result_array();
+                            // var_dump($diagnosa);
+                            // die;
+                            foreach ($diagnosa as $d) :
                             ?>
                                 <tr>
                                     <td><?= $i; ?></td>
-                                    <td><?= $v['id'] ?></td>
-                                    <td><?= $v['nama'] ?></td>
-                                    <td><?= $v['jenis_kelamin'] ?></td>
-                                    <td><?= $v['alamat'] ?></td>
-                                    <td class="text-center">
-                                        <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id'] ?>"><i class="far fa-edit text-success"></i></a> | <a href="" data-toggle="modal" data-target="#detail<?= $v['id'] ?>"><i class="fas fa-notes-medical text-info"></i></a>
-                                    </td>
+                                    <td><?= $d['nama_diagnosa'] ?></td>
+                                    <td><?= $d['keterangan'] ?></td>
                                 </tr>
                         </tbody>
 
@@ -259,25 +255,20 @@
                     <thead>
                         <tr class="text-center">
                             <th>NO</th>
-                            <th>KODE</th>
-                            <th>ICD</th>
                             <th>DIAGNOSA</th>
-                            <th>KETERANGAN</th>
                             <th>AKSI</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1;
-                        foreach ($view as $v) :
+
+                        foreach ($diagnosa as $d) :
                         ?>
                             <tr>
                                 <td><?= $i; ?></td>
-                                <td><?= $v['id'] ?></td>
-                                <td><?= $v['nama'] ?></td>
-                                <td><?= $v['jenis_kelamin'] ?></td>
-                                <td><?= $v['alamat'] ?></td>
+                                <td><?= $d['nama_diagnosa'] ?></td>
                                 <td class="text-center">
-                                    <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id'] ?>"><i class="far fa-edit text-success"></i></a> | <a href="" data-toggle="modal" data-target="#detail<?= $v['id'] ?>"><i class="fas fa-notes-medical text-info"></i></a>
+                                    <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $d['id_diagnosa'] ?>"><i class="far fa-edit text-success"></i></a></a>
                                 </td>
                             </tr>
                     </tbody>
@@ -293,10 +284,6 @@
                         endforeach;
                 ?>
                 </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>

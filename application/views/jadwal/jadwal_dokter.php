@@ -131,7 +131,7 @@ $id = 'PS' . $date .  $urutan;
 </div>
 <!-- modal Update Pasien -->
 <?php foreach ($view as $v) : ?>
-    <div class="modal fade " id="update<?= $v['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade " id="update<?= $v['id_dokter'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header bg-info">
