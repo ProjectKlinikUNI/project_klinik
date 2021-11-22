@@ -3,19 +3,26 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class pasien_baru_model extends CI_Model
 {
+    public function view()
+    {
+        $keyword = $this->input->post('keyword');
+        // $this->db->like('id', $keyword);
+        // $this->db->or_like('nama', $keyword);
+        return $this->db->get_where('dm_pasien', ['nama_pasien' => $keyword])->row_array();
+    }
+    public function listPasien()
+    {
+
+        return $this->db->get('dm_pasien')->result_array();
+    }
     public function create()
     {
         $data = [
             'id_pasien' => $this->input->post('id_pasien'),
-            'nama_pasien' => $this->input->post('nama_pasien'),
-            'tempat_lahir' => $this->input->post('tempat_lahir'),
-            'tgl_lahir' => $this->input->post('tgl_lahir'),
-            'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-            'no_hp' => $this->input->post('no_hp'),
-            'kontak_lain' => $this->input->post('kontak_lain'),
-            'pekerjaan' => $this->input->post('pekerjaan'),
-            'alamat' => $this->input->post('alamat'),
+            'id_dokter' => $this->input->post('id_dokter'),
+            'layanan' => $this->input->post('layanan'),
+            'tanggal_kunjungan' => date('y/m/d')
         ];
-        $this->db->insert('dm_pasien', $data);
+        $this->db->insert('tbl_kunjungan', $data);
     }
 }

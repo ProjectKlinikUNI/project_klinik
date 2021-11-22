@@ -3,7 +3,7 @@
         <div class="card border-info ml-3 mt-3">
             <div class="card-header bg-info ">DAFTAR PASIEN</div>
             <div class="card-body ">
-                <form action="<?= base_url('Pasien_terdaftar') ?>" method="post">
+                <form action="<?= base_url('Pasien_baru') ?>" method="post">
                     <div class="form-group row">
                     </div>
                     <div class="form-group row ml-2">
@@ -22,7 +22,7 @@
                 <div class="card border-info ml-3 mt-3">
                     <!-- <div class="card-header "></div> -->
                     <div class="card-body ">
-                        <form action="<?= base_url('Pasien_terdaftar/create') ?>" method="post">
+                        <form action="<?= base_url('Pasien_baru/create') ?>" method="post">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
@@ -124,7 +124,6 @@
                         ...
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>

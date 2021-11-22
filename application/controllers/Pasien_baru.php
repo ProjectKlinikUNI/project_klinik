@@ -6,7 +6,7 @@ class Pasien_baru extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('pasien_model', 'pasien');
+        $this->load->model('pasien_baru_model', 'pasien');
     }
 
     public function index()
