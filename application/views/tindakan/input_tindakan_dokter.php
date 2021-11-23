@@ -1,6 +1,6 @@
 <div class="content-wrapper mt-5">
     <div class="container ">
-        <button class="btn btn-info ml-3 mt-3" data-toggle="modal" data-target="#create">Tambah Pasien Baru</button>
+        <button class="btn btn-info ml-3 mt-3" data-toggle="modal" data-target="#create">DAFTAR PASIEN</button>
         <div class="card border-info ml-3 mt-3">
             <!-- <div class="card-header "></div> -->
             <div class="card-body ">
@@ -14,15 +14,27 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputPassword" class="col-sm-4 col-form-label">Nama Pasien</label>
+                                <label for="inputtext" class="col-sm-4 col-form-label">Nama Pasien</label>
                                 <div class="col-sm-8">
-                                    <input type="password" readonly class="form-control-plaintext" id="inputPassword" value="<?= $tindakan['nama_pasien'] ?>">
+                                    <input type="text" readonly class="form-control-plaintext" id="inputtext" value="<?= $tindakan['nama_pasien'] ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputPassword" class="col-sm-4 col-form-label">Umur Pasien</label>
+                                <label for="inputtext" class="col-sm-4 col-form-label">Umur Pasien</label>
                                 <div class="col-sm-8">
-                                    <input type="password" readonly class="form-control-plaintext" id="inputPassword" value="<?= $tindakan['umur_pasien'] ?>">
+                                    <input type="text" readonly class="form-control-plaintext" id="inputtext" value="<?php
+                                                                                                                        $tindakan['tgl_lahir'];
+                                                                                                                        $today = new datetime('today');
+                                                                                                                        if ($tindakan >= $today) {
+                                                                                                                            exit('0 tahun 0 Bulan 0 Hari');
+                                                                                                                            $y = $today->diff($birthDate)->y;
+                                                                                                                            $m = $today->diff($birthDate)->m;
+                                                                                                                            $d = $today->diff($birthDate)->d;
+                                                                                                                            return $y . " tahun " . $m . " bulan " . $d . " hari";
+                                                                                                                        }
+
+
+                                                                                                                        ?>">
                                 </div>
                             </div>
                         </form>
@@ -35,15 +47,15 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-4 col-form-label">Nama Dokter</label>
+                            <label for="inputtext" class="col-sm-4 col-form-label">Nama Dokter</label>
                             <div class="col-sm-8">
-                                <input type="password" readonly class="form-control-plaintext" id="inputPassword" value="<?= $tindakan['nama_dokter'] ?>">
+                                <input type="text" readonly class="form-control-plaintext" id="inputtext" value="<?= $tindakan['nama_dokter'] ?>">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-4 col-form-label">Jenis Layanan</label>
+                            <label for="inputtext" class="col-sm-4 col-form-label">Jenis Layanan</label>
                             <div class="col-sm-8">
-                                <input type="password" readonly class="form-control-plaintext" id="inputPassword" value="<?= $tindakan['layanan'] ?>">
+                                <input type="text" readonly class="form-control-plaintext" id="inputtext" value="<?= $tindakan['layanan'] ?>">
                             </div>
                         </div>
                         </form>
@@ -163,10 +175,8 @@
                                 <th>NO</th>
                                 <th>SKU</th>
                                 <th>NAMA</th>
-                                <th>KETERANGAN</th>
-                                <th>KUANTITAS</th>
                                 <th>SATUAN</th>
-                                <th>ATURAN</th>
+                                <th>KETERANGAN</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -175,16 +185,22 @@
                             ?>
                                 <tr>
                                     <td><?= $i; ?></td>
-                                    <td><?= $v['id'] ?></td>
-                                    <td><?= $v['nama'] ?></td>
-                                    <td><?= $v['jenis_kelamin'] ?></td>
-                                    <td><?= $v['alamat'] ?></td>
+                                    <td><?= $v['id_obat'] ?></td>
+                                    <td><?= $v['nama_obat'] ?></td>
+                                    <td><?= $v['satuan'] ?></td>
+                                    <td><?= $v['kategori'] ?></td>
                                     <td class="text-center">
-                                        <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id'] ?>"><i class="far fa-edit text-success"></i></a> | <a href="" data-toggle="modal" data-target="#detail<?= $v['id'] ?>"><i class="fas fa-notes-medical text-info"></i></a>
-                                    </td>
+                                        <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id_obat'] ?>"><i class="far fa-edit text-success"></i></a>
                                 </tr>
                         </tbody>
-
+                        <!-- <tfoot>
+                        <tr>
+                            <th>NAMA</th>
+                            <th>JENIS KELAMIN</th>
+                            <th>ALAMAT</th>
+                            <th>AKSI</th>
+                        </tr>
+                    </tfoot> -->
                     <?php $i++;
                             endforeach;
                     ?>
@@ -290,11 +306,11 @@
 </div>
 
 <!-- Modal resep -->
-<div class="modal fade" id="tambahresep" tabindex="-1" aria-labelledby="diagnosaLabel" aria-hidden="true">
+<div class="modal fade" id="tambahResep" tabindex="-1" aria-labelledby="diagnosaLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="diagnosaLabel">Diagnosa</h5>
+                <h5 class="modal-title" id="diagnosaLabel">Daftar Obat</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -306,37 +322,35 @@
                             <th>NO</th>
                             <th>SKU</th>
                             <th>NAMA</th>
+                            <th>KATEGORI</th>
                             <th>SATUAN</th>
-                            <th>KETERANGAN</th>
+                            <th>BENTUK</th>
+                            <th>AKSI</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1;
-                        foreach ($view as $v) :
+                        foreach ($obat as $v) :
                         ?>
                             <tr>
                                 <td><?= $i; ?></td>
-                                <td><?= $v['id'] ?></td>
-                                <td><?= $v['nama'] ?></td>
-                                <td><?= $v['jenis_kelamin'] ?></td>
-                                <td><?= $v['alamat'] ?></td>
+                                <td><?= $v['id_obat'] ?></td>
+                                <td><?= $v['nama_obat'] ?></td>
+                                <td><?= $v['kategori'] ?></td>
+                                <td><?= $v['stock'] ?></td>
+                                <td><?= $v['bentuk_obat'] ?></td>
                                 <td class="text-center">
-                                    <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id'] ?>"><i class="far fa-edit text-success"></i></a> | <a href="" data-toggle="modal" data-target="#detail<?= $v['id'] ?>"><i class="fas fa-notes-medical text-info"></i></a>
+                                    <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id_obat'] ?>"><i class="far fa-edit text-success"></i></a>
                                 </td>
                             </tr>
                     </tbody>
-                    <!-- <tfoot>
-                        <tr>
-                            <th>NAMA</th>
-                            <th>JENIS KELAMIN</th>
-                            <th>ALAMAT</th>
-                            <th>AKSI</th>
-                        </tr>
-                    </tfoot> -->
+
                 <?php $i++;
                         endforeach;
                 ?>
                 </table>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -367,16 +381,14 @@
                     </thead>
                     <tbody>
                         <?php $i = 1;
-                        foreach ($view as $v) :
+                        foreach ($list_tindakan as $v) :
                         ?>
                             <tr>
                                 <td><?= $i; ?></td>
-                                <td><?= $v['id'] ?></td>
-                                <td><?= $v['nama'] ?></td>
-                                <td><?= $v['jenis_kelamin'] ?></td>
-                                <td><?= $v['alamat'] ?></td>
+                                <td><?= $v['nama_tindakan'] ?></td>
+                                <td><?= $v['harga_tindakan'] ?></td>
                                 <td class="text-center">
-                                    <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id'] ?>"><i class="far fa-edit text-success"></i></a> | <a href="" data-toggle="modal" data-target="#detail<?= $v['id'] ?>"><i class="fas fa-notes-medical text-info"></i></a>
+                                    <a href="" data-toggle="modal" data-target="#update<?= $v['id_tindakan'] ?>"><i class="far fa-edit text-success"></i></a>
                                 </td>
                             </tr>
                     </tbody>
@@ -398,5 +410,58 @@
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- Modal Data Pasien -->
+<div class="modal fade " id="create" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <h5 class="modal-title" id="exampleModalLabel">Pasien Baru</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="<?= base_url('Input_tindakan/update_pasien') ?>" method="post">
+                    <table id="table" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr class="align-middle">
+                                <th>NO</th>
+                                <th>NO ANTRIAN</th>
+                                <th>TANGGAL PENDAFTARAN</th>
+                                <th>ID PASIEN</th>
+                                <th>NAMA PASIEN</th>
+                                <th>JENIS LAYANAN</th>
+                                <th>JENIS POLI</th>
+                                <th>DOKTER</th>
+                                <th>AKSI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1;
+                            foreach ($view as $v) :
+                            ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $v['id_kunjungan'] ?></td>
+                                    <td><?= $v['tanggal_kunjungan'] ?></td>
+                                    <td><?= $v['id_pasien'] ?></td>
+                                    <td><?= $v['nama_pasien'] ?></td>
+                                    <td><?= $v['layanan'] ?></td>
+                                    <td><?= $v['nama_poli'] ?></td>
+                                    <td><?= $v['nama_dokter'] ?></td>
+                                    <input type="text" hidden name="id_kunjungan" value="<?= $v['id_kunjungan'] ?>">
+                                    <td class="text-center"><button class="btn btn-info"><i class="far fa-edit"></i></button></td>
+                                </tr>
+                        </tbody>
+                    <?php $i++;
+                            endforeach;
+                    ?>
+                    </table>
+            </div>
+        </div>
+        </form>
     </div>
 </div>
