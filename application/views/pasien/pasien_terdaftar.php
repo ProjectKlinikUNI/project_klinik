@@ -21,7 +21,7 @@
                         </thead>
                         <tbody>
                             <?php $i = 1;
-                            foreach ($view as $v) :
+                            foreach ($list as $v) :
                             ?>
                                 <tr>
                                     <td><?= $i; ?></td>
@@ -162,7 +162,7 @@
     </div>
 </div>
 <!-- modal Update Pasien -->
-<?php foreach ($view as $v) : ?>
+<?php foreach ($list as $v) : ?>
     <div class="modal fade " id="update<?= $v['id_pasien'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -262,7 +262,7 @@
 <?php endforeach; ?>
 
 <!-- detail -->
-<?php foreach ($view as $v) : ?>
+<?php foreach ($list as $v) : ?>
     <div class="modal fade " id="detail<?= $v['id_pasien'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
