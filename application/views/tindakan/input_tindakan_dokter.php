@@ -1,3 +1,13 @@
+<script>
+    $(document).ready(function() {
+        $("#catat").click(function() {
+            $("penyakit").hide
+            $("modal_keterangan").show
+        });
+    });
+</script>
+
+
 <div class="content-wrapper mt-5">
     <div class="container ">
         <button class="btn btn-info ml-3 mt-3" data-toggle="modal" data-target="#create">DAFTAR PASIEN</button>
@@ -30,7 +40,7 @@
                                                                                                                             $y = $today->diff($birthDate)->y;
                                                                                                                             $m = $today->diff($birthDate)->m;
                                                                                                                             $d = $today->diff($birthDate)->d;
-                                                                                                                            return $y . " tahun " . $m . " bulan " . $d . " hari";
+                                                                                                                            echo  $y . " tahun " . $m . " bulan " . $d . " hari";
                                                                                                                         }
 
 
@@ -87,48 +97,48 @@
                                 <div class="form-group row mt-2">
                                     <label for="staticEmail" class="col-sm-2 col-form-label">Riwayat Alergi</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="staticEmail">
+                                        <input type="text" class="form-control" id="staticEmail" value="<?= $catat['riwayat_alergi'] ?>">
                                     </div>
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group mt-3">
                                                 <label for="exampleInputEmail1">Tinggi Badan</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?= $catat['tinggi_badan'] ?>">
                                             </div>
                                         </div>
-                                        <div class="col">
+                                        <div class=" col">
                                             <div class="form-group mt-3">
                                                 <label for="exampleInputEmail1">Berat Badan</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                <input type="email" class="form-control" value="<?= $catat['berat_badan'] ?>">
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group mt-3">
                                                 <label for="exampleInputEmail1">Tekanan Darah</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                <input type="email" class="form-control" value="<?= $catat['tensi'] ?>">
                                             </div>
                                         </div>
-                                        <div class="col">
+                                        <div class=" col">
                                             <div class="form-group mt-3">
                                                 <label for="exampleInputEmail1">Buta Warna</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                <input type="email" class="form-control" value="<?= $catat['buta_warna'] ?>">
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group mt-3">
                                                 <label for="exampleInputEmail1">Catat Badan</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                <input type="email" class="form-control" value="<?= $catat['cacat_badan'] ?>">
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group mt-3">
                                                 <label for="exampleInputEmail1">Golongan Darah</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                <input type="email" class="form-control" value="<?= $catat['golongan_darah'] ?>">
                                             </div>
                                         </div>
                                     </div>
                                     <label for="exampleInputEmail1">Catatan</label>
-                                    <textarea class="form-control" id="catatan" name="catatan" rows="3"></textarea>
+                                    <textarea class="form-control" id="catatan" name="catatan" rows="3"><?= $catat['catatan'] ?></textarea>
                                 </div>
                         </form>
                     </div>
@@ -143,7 +153,6 @@
                                 <th>NO</th>
                                 <th>DIAGNOSA</th>
                                 <th>KETERANGAN</th>
-                                <th>AKSI</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -151,12 +160,23 @@
                             // $diagnosa = $this->db->get('dm_diagnosa')->result_array();
                             // var_dump($diagnosa);
                             // die;
-                            foreach ($diagnosa as $d) :
+                            foreach ($readdiagnosa as $d) :
                             ?>
                                 <tr>
                                     <td><?= $i; ?></td>
                                     <td><?= $d['nama_diagnosa'] ?></td>
-                                    <td><?= $d['keterangan'] ?></td>
+                                    <td>
+                                        <form action="<?= base_url('Input_tindakan/update_diagnosa') ?>" method="post">
+                                            <?php if ($d['keterangan'] == Null) { ?>
+                                                <input type="text" name="id_diagnosa_pasien" value="<?= $d['id_diagnosa_pasien'] ?>">
+                                                <textarea class="form-control" id="catatan" name="keterangan" rows="3"></textarea>
+                                                <button type="submit" class="btn btn-info mt-3"><i class="far fa-edit "></i> Tambahkan Keterangan</button>
+                                            <? } else { ?>
+                                                <?= $d['keterangan'] ?>
+                                            <?php } ?>
+                                        </form>
+                                    </td>
+
                                 </tr>
                         </tbody>
 
@@ -173,24 +193,23 @@
                         <thead>
                             <tr class="text-center">
                                 <th>NO</th>
-                                <th>SKU</th>
                                 <th>NAMA</th>
                                 <th>SATUAN</th>
                                 <th>KETERANGAN</th>
+                                <th>KETENTUAN</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $i = 1;
-                            foreach ($view as $v) :
+                            foreach ($resep as $v) :
                             ?>
                                 <tr>
                                     <td><?= $i; ?></td>
-                                    <td><?= $v['id_obat'] ?></td>
                                     <td><?= $v['nama_obat'] ?></td>
                                     <td><?= $v['satuan'] ?></td>
                                     <td><?= $v['kategori'] ?></td>
                                     <td class="text-center">
-                                        <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id_obat'] ?>"><i class="far fa-edit text-success"></i></a>
+                                        <a href="<?= base_url('pasien/update') ?>"><i class="far fa-edit text-success"></i></a>
                                 </tr>
                         </tbody>
                         <!-- <tfoot>
@@ -220,16 +239,13 @@
                         </thead>
                         <tbody>
                             <?php $i = 1;
-                            foreach ($view as $v) :
+                            foreach ($raedtindakan as $v) :
                             ?>
                                 <tr>
                                     <td><?= $i; ?></td>
-                                    <td><?= $v['id'] ?></td>
-                                    <td><?= $v['nama'] ?></td>
-                                    <td><?= $v['jenis_kelamin'] ?></td>
-                                    <td><?= $v['alamat'] ?></td>
+                                    <td><?= $v['nama_tindakan'] ?></td>
+                                    <td><?= $v['harga_tindakan'] ?></td>
                                     <td class="text-center">
-                                        <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id'] ?>"><i class="far fa-edit text-success"></i></a> | <a href="" data-toggle="modal" data-target="#detail<?= $v['id'] ?>"><i class="fas fa-notes-medical text-info"></i></a>
                                     </td>
                                 </tr>
                         </tbody>
@@ -267,43 +283,74 @@
                 </button>
             </div>
             <div class="modal-body">
-                <table id="table" class="table table-striped table-bordered" style="width:100%">
-                    <thead>
-                        <tr class="text-center">
-                            <th>NO</th>
-                            <th>DIAGNOSA</th>
-                            <th>AKSI</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $i = 1;
-
-                        foreach ($diagnosa as $d) :
-                        ?>
-                            <tr>
-                                <td><?= $i; ?></td>
-                                <td><?= $d['nama_diagnosa'] ?></td>
-                                <td class="text-center">
-                                    <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $d['id_diagnosa'] ?>"><i class="far fa-edit text-success"></i></a></a>
-                                </td>
+                <form action="<?= base_url('input_tindakan/create_diagnosa') ?>" method="post">
+                    <table id="table" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr class="text-center">
+                                <th>NO</th>
+                                <th>DIAGNOSA</th>
+                                <th>AKSI</th>
                             </tr>
-                    </tbody>
-                    <!-- <tfoot>
-                        <tr>
-                            <th>NAMA</th>
-                            <th>JENIS KELAMIN</th>
-                            <th>ALAMAT</th>
-                            <th>AKSI</th>
-                        </tr>
-                    </tfoot> -->
-                <?php $i++;
-                        endforeach;
-                ?>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1;
+
+                            foreach ($diagnosa as $d) :
+                            ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $d['nama_diagnosa'] ?></td>
+                                    <td class="text-center">
+                                        <input type="hidden" name="id_diagnosa" value="<?= $d['id_diagnosa'] ?>">
+                                        <input type="hidden" name="id_pendaftaran" value="<?= $tindakan['id_kunjungan'] ?>">
+                                        <input type="hidden" name="id_dokter" value="<?= $tindakan['id_dokter'] ?>">
+                                        <button class="btn btn-info" type="submit"><i class="far fa-edit  " id="catat"></i></button>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    <?php $i++;
+                            endforeach;
+                    ?>
+                    </table>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
+<?php foreach ($diagnosa as $d) : ?>
+
+    <!-- modal keterangan diagnosa -->
+    <div class="modal fade" id="diagnosa" <?= $d['id_diagnosa'] ?> tabindex="-1" aria-labelledby="diagnosaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="diagnosaLabel">Keterangan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="<?= base_url('Input_tindakan/diagnosa') ?>">
+                        <input type="hiden" name="id_pendaftaran" value="<?= $tindakan['id_kunjungan'] ?>">
+                        <input type="hiden" name="id_dokter" value="<?= $tindakan['id_dokter'] ?>">
+                        <input type="hiden" name="nama_diagnosa" value="<?= $d['nama_diagnosa'] ?>">
+
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Example textarea</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="keterangan"></textarea>
+                        </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
 
 <!-- Modal resep -->
 <div class="modal fade" id="tambahResep" tabindex="-1" aria-labelledby="diagnosaLabel" aria-hidden="true">
@@ -316,47 +363,48 @@
                 </button>
             </div>
             <div class="modal-body">
-                <table id="table" class="table table-striped table-bordered" style="width:100%">
-                    <thead>
-                        <tr class="text-center">
-                            <th>NO</th>
-                            <th>SKU</th>
-                            <th>NAMA</th>
-                            <th>KATEGORI</th>
-                            <th>SATUAN</th>
-                            <th>BENTUK</th>
-                            <th>AKSI</th>
+                <form action="<?= base_url('Input_tindakan/create_resep') ?>" method="post">
+                    <table id="table" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr class="text-center">
+                                <th>NO</th>
+                                <th>SKU</th>
+                                <th>NAMA</th>
+                                <th>KATEGORI</th>
+                                <th>SATUAN</th>
+                                <th>BENTUK</th>
+                                <th>AKSI</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $i = 1;
-                        foreach ($obat as $v) :
-                        ?>
-                            <tr>
-                                <td><?= $i; ?></td>
-                                <td><?= $v['id_obat'] ?></td>
-                                <td><?= $v['nama_obat'] ?></td>
-                                <td><?= $v['kategori'] ?></td>
-                                <td><?= $v['stock'] ?></td>
-                                <td><?= $v['bentuk_obat'] ?></td>
-                                <td class="text-center">
-                                    <a href="<?= base_url('pasien/update') ?>" data-toggle="modal" data-target="#update<?= $v['id_obat'] ?>"><i class="far fa-edit text-success"></i></a>
-                                </td>
                             </tr>
-                    </tbody>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1;
+                            foreach ($obat as $v) :
+                            ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $v['id_obat'] ?></td>
+                                    <td><?= $v['nama_obat'] ?></td>
+                                    <td><?= $v['kategori'] ?></td>
+                                    <td><?= $v['stock'] ?></td>
+                                    <td><?= $v['bentuk_obat'] ?></td>
+                                    <td class="text-center">
+                                        <input type="hidden" name="kode_obat" value="<?= $v['id_obat'] ?>">
+                                        <input type="hidden" name="id_pendaftaran" value="<?= $tindakan['id_kunjungan'] ?>">
+                                        <input type="hidden" name="id_dokter" value="<?= $tindakan['id_dokter'] ?>">
+                                        <button type="submit" class="btn btn-info"><i class=" far fa-edit "></i></button>
+                                    </td>
+                                </tr>
+                        </tbody>
 
-                <?php $i++;
-                        endforeach;
-                ?>
-                </table>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                    <?php $i++;
+                            endforeach;
+                    ?>
+                    </table>
+                </form>
             </div>
         </div>
+
     </div>
 </div>
 
@@ -371,28 +419,32 @@
                 </button>
             </div>
             <div class="modal-body">
-                <table id="table" class="table table-striped table-bordered" style="width:100%">
-                    <thead>
-                        <tr class="text-center">
-                            <th>NO</th>
-                            <th>NAMA TINDAKAN</th>
-                            <th>HARGA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $i = 1;
-                        foreach ($list_tindakan as $v) :
-                        ?>
-                            <tr>
-                                <td><?= $i; ?></td>
-                                <td><?= $v['nama_tindakan'] ?></td>
-                                <td><?= $v['harga_tindakan'] ?></td>
-                                <td class="text-center">
-                                    <a href="" data-toggle="modal" data-target="#update<?= $v['id_tindakan'] ?>"><i class="far fa-edit text-success"></i></a>
-                                </td>
+                <form action="<?= base_url('Input_tindakan/create_tindakan') ?>" method="post">
+                    <table id="table" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr class="text-center">
+                                <th>NO</th>
+                                <th>NAMA TINDAKAN</th>
+                                <th>HARGA</th>
                             </tr>
-                    </tbody>
-                    <!-- <tfoot>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1;
+                            foreach ($list_tindakan as $v) :
+                            ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $v['nama_tindakan'] ?></td>
+                                    <td><?= $v['harga_tindakan'] ?></td>
+                                    <td class="text-center">
+                                        <input type="hidden" name="id_tindakan" value="<?= $v['id_tindakan'] ?>">
+                                        <input type="hidden" name="id_pendaftaran" value="<?= $tindakan['id_kunjungan'] ?>">
+                                        <input type="hidden" name="id_dokter" value="<?= $tindakan['id_dokter'] ?>">
+                                        <button type="submit" class="btn btn-info"><i class="far fa-edit "></i></button>
+                                    </td>
+                                </tr>
+                        </tbody>
+                        <!-- <tfoot>
                         <tr>
                             <th>NAMA</th>
                             <th>JENIS KELAMIN</th>
@@ -400,17 +452,15 @@
                             <th>AKSI</th>
                         </tr>
                     </tfoot> -->
-                <?php $i++;
-                        endforeach;
-                ?>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                    <?php $i++;
+                            endforeach;
+                    ?>
+                    </table>
+                </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <!-- Modal Data Pasien -->
@@ -453,6 +503,7 @@
                                     <td><?= $v['nama_poli'] ?></td>
                                     <td><?= $v['nama_dokter'] ?></td>
                                     <input type="text" hidden name="id_kunjungan" value="<?= $v['id_kunjungan'] ?>">
+                                    <input type="text" hidden name="status" value="Diproses Dokter">
                                     <td class="text-center"><button class="btn btn-info"><i class="far fa-edit"></i></button></td>
                                 </tr>
                         </tbody>
