@@ -19,12 +19,12 @@ class Jadwal_dokter extends CI_Controller
         $this->load->view('main', $data);
     }
 
-    public function list()
-    {
-        $output = $this->jadwal->view();
+    // public function list()
+    // {
+    //     $output = $this->jadwal->view();
 
-        echo json_encode($output);
-    }
+    //     echo json_encode($output);
+    // }
 
     public function create()
     {

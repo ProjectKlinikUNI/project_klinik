@@ -24,7 +24,7 @@
                         </thead>
                         <tbody>
                             <?php $i = 1;
-                            foreach ($view as $v) :
+                            foreach ($list as $v) :
                             ?>
                                 <tr>
                                     <td><?= $i; ?></td>
@@ -97,6 +97,7 @@
                                             <input type="text" class="form-control" id="staticEmail" name="tinggi_badan" required>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                     <div class="col">
                                         <div class="form-group mt-3">
                                             <label for="staticEmail">Berat Badan</label>
@@ -108,6 +109,198 @@
                                             <label for="staticEmail">Tekanan Darah</label>
                                             <input type="text" class="form-control" id="staticEmail" name="tensi" required>
                                         </div>
+=======
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-3 col-form-label">No Hp</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="staticEmail" name="no_hp" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-3 col-form-label">Kontak Lain</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="staticEmail" name="kontak_lain" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-3 col-form-label">Pekerjaan</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="staticEmail" name="pekerjaan" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-3 col-form-label">Alamat</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="staticEmail" name="alamat" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-info">Simpan</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+<!-- modal Update Pasien -->
+<?php foreach ($list as $v) : ?>
+    <div class="modal fade " id="update<?= $v['id_pasien'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <h5 class="modal-title" id="exampleModalLabel">Ubah Pasien</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="<?= base_url('Pasien/update') ?>" method="post">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">ID Pendaftaran</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" readonly class="form-control" id="staticEmail" name="id_pasien" value="<?= $v['id_pasien'] ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">Nama Lengkap</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="staticEmail" name="nama_pasien" value="<?= $v['nama_pasien'] ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">Tempat Lahir</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="staticEmail" name="tempat_lahir" value="<?= $v['tempat_lahir'] ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                                    <div class="col-sm-8">
+                                        <input type="date" class="form-control" id="staticEmail" name="tgl_lahir" value="<?= $v['tgl_lahir'] ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                                    <div class="col-sm-8">
+                                        <!-- <input type="text" class="form-control" id="staticEmail" name="jenis_kelamin" value="<?= $v['jenis_kelamin'] ?>" required> -->
+                                        <div class="form-check">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="exampleRadios1" value="Laki-Laki">
+                                                    <label class="form-check-label" for="exampleRadios1">
+                                                        Laki-Laki
+                                                    </label>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="exampleRadios1" value="Perempuan">
+                                                    <label class="form-check-label" for="exampleRadios1">
+                                                        Perempuan
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">No Hp</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="staticEmail" name="no_hp" value="<?= $v['no_hp'] ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">Kontak Lain</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="staticEmail" name="kontak_lain" value="<?= $v['kontak_lain'] ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">Pekerjaan</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="staticEmail" name="pekerjaan" value="<?= $v['pekerjaan'] ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">Alamat</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="staticEmail" name="alamat" value="<?= $v['alamat'] ?>" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-info">Simpan</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+<?php endforeach; ?>
+
+<!-- detail -->
+<?php foreach ($list as $v) : ?>
+    <div class="modal fade " id="detail<?= $v['id_pasien'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail Pasien</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">ID Pendaftaran</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="staticEmail" name="id_pasien" value="<?= $v['id_pasien'] ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">Nama Lengkap</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="staticEmail" name="nama_pasien" value="<?= $v['nama_pasien'] ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">Tempat Lahir</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="staticEmail" name="tempat_lahir" value="<?= $v['tempat_lahir'] ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="staticEmail" name="tgl_lahir" value="<?= $v['tgl_lahir'] ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="staticEmail" name="jenis_kelamin" value="<?= $v['jenis_kelamin'] ?>" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-3 col-form-label">No Hp</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="staticEmail" name="no_hp" value="<?= $v['no_hp'] ?>" required>
+>>>>>>> bc3f19228d831a8aaaaebdf90b55ad6e6a901926
                                     </div>
                                     <div class="col">
                                         <div class="form-group mt-3">
