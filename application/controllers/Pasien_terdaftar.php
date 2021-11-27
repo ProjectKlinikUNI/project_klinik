@@ -11,21 +11,26 @@ class Pasien_terdaftar extends CI_Controller
 
     public function index()
     {
-        $data['pasien'] = $this->pasien->view();
-        $data['list'] = $this->pasien->listPasien();
-        $data['title'] = 'Pasien';
+        $data['view'] = $this->pasien->view();
+        $data['kode'] = $this->pasien->kode();
+        $data['title'] = 'Pasien_terdaftar';
         $data['content_wrapper'] = $this->load->view('pasien/pasien_terdaftar', $data, true);
         $this->load->view('main', $data);
     }
     public function create()
     {
         $this->pasien->create();
-        // $this->pasien->create();
+        $this->session->flashdata('Message', 'Catatan Pasien Berhasil Ditambahkan');
         redirect('Pasien_terdaftar');
     }
-    public function printPasien()
+    public function update()
     {
-        $this->pasien->create();
-        redirect('Pasien');
+        $this->pasien->update();
+        redirect('pasien_terdaftar');
     }
+    // public function delete($id_pasien)
+    // {
+    //     $this->pasien->delete($id_pasien);
+    //     redirect('pasien_terdaftar');
+    // }
 }
