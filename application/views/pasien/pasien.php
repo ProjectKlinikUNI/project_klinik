@@ -279,31 +279,31 @@
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">ID Pendaftaran</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="id_pasien" value="<?= $v['id_pasien'] ?>" required>
+                                        <input type="text" readonly class="form-control" id="staticEmail" name="id_pasien" value="<?= $v['id_pasien'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">Nama Lengkap</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="nama_pasien" value="<?= $v['nama_pasien'] ?>" required>
+                                        <input type="text" readonly class="form-control" id="staticEmail" name="nama_pasien" value="<?= $v['nama_pasien'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">Tempat Lahir</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="tempat_lahir" value="<?= $v['tempat_lahir'] ?>" required>
+                                        <input type="text" readonly class="form-control" id="staticEmail" name="tempat_lahir" value="<?= $v['tempat_lahir'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="tgl_lahir" value="<?= $v['tgl_lahir'] ?>" required>
+                                        <input type="text" readonly class="form-control" id="staticEmail" name="tgl_lahir" value="<?= $v['tgl_lahir'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="jenis_kelamin" value="<?= $v['jenis_kelamin'] ?>" required>
+                                        <input type="text" readonly class="form-control" id="staticEmail" name="jenis_kelamin" value="<?= $v['jenis_kelamin'] ?>" required>
                                     </div>
                                 </div>
                             </div>
@@ -311,25 +311,25 @@
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">No Hp</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="no_hp" value="<?= $v['no_hp'] ?>" required>
+                                        <input type="text" readonly class="form-control" id="staticEmail" name="no_hp" value="<?= $v['no_hp'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">Kontak Lain</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="kontak_lain" value="<?= $v['kontak_lain'] ?>" required>
+                                        <input type="text" readonly class="form-control" id="staticEmail" name="kontak_lain" value="<?= $v['kontak_lain'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">Pekerjaan</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="pekerjaan" value="<?= $v['pekerjaan'] ?>" required>
+                                        <input type="text" readonly class="form-control" id="staticEmail" name="pekerjaan" value="<?= $v['pekerjaan'] ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">Alamat</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="staticEmail" name="alamat" value="<?= $v['alamat'] ?>" required>
+                                        <input type="text" readonly class="form-control" id="staticEmail" name="alamat" value="<?= $v['alamat'] ?>" required>
                                     </div>
                                 </div>
                             </div>

@@ -9,8 +9,13 @@
 
 
 <div class="content-wrapper mt-5">
+<<<<<<< HEAD
+    <div class="container-fluid ">
+        <button class="btn btn-info ml-3 mt-3" data-toggle="modal" data-target="#create">Tambah Pasien Baru</button>
+=======
     <div class="container ">
         <button class="btn btn-info ml-3 mt-3" data-toggle="modal" data-target="#create">DAFTAR PASIEN</button>
+>>>>>>> bc3f19228d831a8aaaaebdf90b55ad6e6a901926
         <div class="card border-info ml-3 mt-3">
             <!-- <div class="card-header "></div> -->
             <div class="card-body ">

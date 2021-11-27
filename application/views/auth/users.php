@@ -1,5 +1,5 @@
 <div class="content-wrapper mt-5">
-    <div class="container ">
+    <div class="container-fluid ">
         <div class="message" data-message="<?= $this->session->flashdata('message') ?>"></div>
 
         <button class="btn btn-info ml-3 mt-3" data-toggle="modal" data-target="#create">Tambah Pengguna Baru</button>
