@@ -14,7 +14,7 @@ class Jadwal_dokter extends CI_Controller
     {
         $data['view'] = $this->jadwal->view();
         $data['dokter'] = $this->dokter->view();
-        $data['title'] = 'jadwal';
+        $data['title'] = 'Jadwal Dokter';
         $data['content_wrapper'] = $this->load->view('jadwal/jadwal_dokter', $data, true);
         $this->load->view('main', $data);
     }

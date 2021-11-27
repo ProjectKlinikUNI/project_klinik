@@ -38,6 +38,7 @@
             //periksa apakah ada sub menu
             if ($sub_menu->num_rows() > 0) {
           ?>
+
               <li class="nav-item">
                 <a href="<?php echo base_url() ?>" class="nav-link">
                   <?php echo $main->navbar_icon; ?>
@@ -47,30 +48,38 @@
                   <?php
                   foreach ($sub_menu->result() as $sub) {
                   ?>
-                    <li class="nav-item">
+                    <?php if ($title == $main->navbar_name) : ?>
+                      <li class="nav-item bg-info">
+                      <?php else : ?>
+                      <li class="nav-item bg-dark">
+                      <?php endif; ?>
                       <a href="<?php echo base_url($sub->url) ?>" class="nav-link">
                         <i class="nav-icon fas fa-empty-set"></i>
                         <p><?php echo $sub->navbar_name; ?></p>
                       </a>
-                    </li>
-                  <?php
+                      </li>
+                    <?php
                   }
-                  ?>
+                    ?>
                 </ul>
               </li>
             <?php
             } else {
             ?>
-              <li class="nav-item">
+              <?php if ($title == $main->navbar_name) : ?>
+                <li class="nav-item bg-info">
+                <?php else : ?>
+                <li class="nav-item">
+                <?php endif; ?>
                 <a href="<?php echo base_url($main->url) ?>" class="nav-link">
                   <?php echo $main->navbar_icon; ?>
                   <p><?php echo $main->navbar_name; ?></p>
                 </a>
-              </li>
-          <?php
+                </li>
+            <?php
             }
           }
-          ?>
+            ?>
       </nav>
       <!-- /.sidebar-menu -->
     </div>

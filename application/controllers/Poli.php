@@ -12,7 +12,7 @@ class Poli extends CI_Controller
     public function index()
     {
         $data['view'] = $this->poli->view();
-        $data['title'] = 'poli';
+        $data['title'] = 'Poliklinik';
         $data['content_wrapper'] = $this->load->view('poli/poli', $data, true);
         $this->load->view('main', $data);
     }
