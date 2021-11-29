@@ -76,4 +76,7 @@ class pasien_terdaftar_model extends CI_Model
         $kodePasien = $char . $date . sprintf("%04s", $noUrut);
         return $kodePasien;
     }
+    public function listPasien()
+    {
+    }
 }
