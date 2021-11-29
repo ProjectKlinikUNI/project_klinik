@@ -66,7 +66,7 @@ class input_tindakan_model extends CI_Model
     }
     public function read_diagnosa()
     {
-        $read = "SELECT dm_diagnosa.nama_diagnosa, trans_diagnosa_pasien.id_diagnosa_pasien, trans_diagnosa_pasien.keterangan, max(tanggal_kunjungan) as tanggal_kunjungan FROM trans_diagnosa_pasien JOIN dm_diagnosa ON dm_diagnosa.id_diagnosa = trans_diagnosa_pasien.id_diagnosa JOIN tbl_kunjungan ON trans_diagnosa_pasien.id_pendaftaran = tbl_kunjungan.id_kunjungan";
+        $read = "SELECT dm_diagnosa.nama_diagnosa, trans_diagnosa_pasien.id_diagnosa_pasien, trans_diagnosa_pasien.keterangan FROM trans_diagnosa_pasien JOIN dm_diagnosa ON dm_diagnosa.id_diagnosa = trans_diagnosa_pasien.id_diagnosa JOIN tbl_kunjungan ON trans_diagnosa_pasien.id_pendaftaran = tbl_kunjungan.id_kunjungan";
 
         return $this->db->query($read)->result_array();
     }
