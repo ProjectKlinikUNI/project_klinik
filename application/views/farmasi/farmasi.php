@@ -64,7 +64,9 @@
                                 </td>
                                 <td><?= $v['nama_dokter'] ?></td>
                                 <td><?= $v['nama_poli'] ?></td>
-                                <td>@mdo</td>
+                                <td>
+                                    <a href="" data-toggle="modal" data-target="#exampleModal" <?= $v['id_kunjungan'] ?>><i class="fas fa-notes-medical"></i></a>
+                                </td>
                         </tr>
 
                     <?php $i++;
@@ -76,3 +78,109 @@
         </div>
     </div>
 </div>
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+</button> -->
+<?php
+foreach ($view as $v) :
+?>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" <?= $v['id_kunjungan'] ?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail Resep</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title" style="background:rgb(33, 150, 243)">Detail Pasien</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row">
+                                            <label for="staticEmail" class="col-sm-4 col-form-label">No Pendaftaran</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="inputPassword" class="col-sm-4 col-form-label">Nama Pendaftaran</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control-plaintext" id="inputPassword" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="inputPassword" class="col-sm-4 col-form-label">Jenis Kelamin</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control-plaintext" id="inputPassword" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="inputPassword" class="col-sm-4 col-form-label">Umur</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control-plaintext" id="inputPassword" placeholder="Password">
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">Detail Obat</h5>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">First</th>
+                                                <th scope="col">Last</th>
+                                                <th scope="col">Handle</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Larry</td>
+                                                <td>the Bird</td>
+                                                <td>@twitter</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
