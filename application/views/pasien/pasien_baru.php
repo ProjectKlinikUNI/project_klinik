@@ -1,7 +1,8 @@
-<div class="content-wrapper mt-5">
+<div class="content-wrapper mt-5 pt-2">
+    <button>hAI</button>
     <div class="card border-primary">
         <div class="card border-info ml-3 mt-3">
-            <div class="card-header bg-info ">DAFTAR PASIEN</div>
+            <div class="card-header">DAFTAR PASIEN</div>
             <div class="card-body ">
                 <form action="<?= base_url('Pasien_baru') ?>" method="post">
                     <div class="form-group row">
