@@ -1,5 +1,5 @@
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-dark bg-info fixed-top">
+  <nav class="main-header navbar navbar-expand navbar-dark  fixed-top" style="background:rgb(33, 150, 243)">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -39,7 +39,7 @@
       </li> -->
 
       <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('auth/logout');?>"><i class="fas fa-sign-out-alt"></i></a>
+        <a class="nav-link" href="<?= base_url('auth/logout'); ?>"><i class="fas fa-sign-out-alt"></i></a>
       </li>
 
     </ul>

@@ -49,7 +49,7 @@
                   foreach ($sub_menu->result() as $sub) {
                   ?>
                     <?php if ($title == $main->navbar_name) : ?>
-                      <li class="nav-item bg-info">
+                      <li class="nav-item " style="background:rgb(33, 150, 243)">
                       <?php else : ?>
                       <li class="nav-item bg-dark">
                       <?php endif; ?>
@@ -67,7 +67,7 @@
             } else {
             ?>
               <?php if ($title == $main->navbar_name) : ?>
-                <li class="nav-item bg-info">
+                <li class="nav-item " style="background:rgb(33, 150, 243)">
                 <?php else : ?>
                 <li class="nav-item">
                 <?php endif; ?>

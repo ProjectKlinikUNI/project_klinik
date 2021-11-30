@@ -90,7 +90,7 @@ foreach ($view as $v) :
     <div class="modal fade" id="exampleModal" <?= $v['id_kunjungan'] ?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="background:rgb(33, 150, 243)">
                     <h5 class="modal-title" id="exampleModalLabel">Detail Resep</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -100,33 +100,39 @@ foreach ($view as $v) :
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="card">
-                                <div class="card-header">
-                                    <h5 class="card-title" style="background:rgb(33, 150, 243)">Detail Pasien</h5>
+                                <div class="card-header" style="background:rgb(33, 150, 243)">
+                                    <h5 class="card-title">Detail Pasien</h5>
                                 </div>
                                 <div class="card-body">
                                     <form>
                                         <div class="row">
                                             <label for="staticEmail" class="col-sm-4 col-form-label">No Pendaftaran</label>
                                             <div class="col-sm-8">
-                                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?= $detailPasien['id_kunjungan'] ?>">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <label for="inputPassword" class="col-sm-4 col-form-label">Nama Pendaftaran</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control-plaintext" id="inputPassword" placeholder="Password">
+                                                <input type="text" class="form-control-plaintext" id="inputPassword" value="<?= $detailPasien['nama_pasien'] ?>">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <label for="inputPassword" class="col-sm-4 col-form-label">Jenis Kelamin</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control-plaintext" id="inputPassword" placeholder="Password">
+                                                <input type="text" class="form-control-plaintext" id="inputPassword" value="<?= $detailPasien['jenis_kelamin'] ?>">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <label for="inputPassword" class="col-sm-4 col-form-label">Umur</label>
                                             <div class="col-sm-8">
                                                 <input type="text" class="form-control-plaintext" id="inputPassword" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="inputPassword" class="col-sm-4 col-form-label">Status</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control-plaintext" id="inputPassword" value="<?= $detailPasien['status'] ?>">
                                             </div>
                                         </div>
                                     </form>
@@ -136,37 +142,29 @@ foreach ($view as $v) :
                         </div>
                         <div class="col-sm-6">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header" style="background:rgb(33, 150, 243)">
                                     <h5 class="card-title">Detail Obat</h5>
                                 </div>
                                 <div class="card-body">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
+                                                <th scope="col">No</th>
+                                                <th scope="col">Nama Obat</th>
+                                                <th scope="col">keterangan</th>
                                                 <th scope="col">Handle</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
+                                                <?php
+                                                $i = 1;
+                                                foreach ($detailObat as $do)
+                                                ?>
+                                                <th scope="row"><?= $i; ?></th>
+                                                <td><?= $do['nama_obat'] ?></td>
+                                                <td><?= $do['keterangan'] ?></td>
                                                 <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
                                             </tr>
                                         </tbody>
                                     </table>

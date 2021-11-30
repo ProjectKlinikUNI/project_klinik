@@ -13,6 +13,8 @@ class Farmasi extends CI_Controller
     {
         $data['title'] = 'Farmasi';
         $data['view'] = $this->farmasi->view();
+        $data['detailPasien'] = $this->farmasi->detailPasien();
+        $data['detailObat'] = $this->farmasi->detailObat();
         $data['content_wrapper'] = $this->load->view('farmasi/farmasi', $data, true);
         $this->load->view('main', $data);
     }
