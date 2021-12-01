@@ -41,7 +41,7 @@ class dokter_model extends CI_Model
         $noUrut = (int)substr($kode, 6, 4);
         $noUrut++;
         $char = "DR";
-        $date = date('ydm');
+        $date = date('Y');
         $kodeDokter = $char . $date . sprintf("%04s", $noUrut);
         return $kodeDokter;
     }

@@ -9,7 +9,11 @@
 
 
 <div class="content-wrapper mt-5">
+<<<<<<< HEAD
     <<<<<<< HEAD <div class="container-fluid ">
+=======
+    <div class="container ">
+>>>>>>> parent of f5ccb50 (belum beres coba update)
         <button class="btn btn-info ml-3 mt-3" data-toggle="modal" data-target="#create">Tambah Pasien Baru</button>
         =======
         <div class="container ">

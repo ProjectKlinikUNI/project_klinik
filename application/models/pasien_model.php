@@ -59,7 +59,7 @@ class pasien_model extends CI_Model
         $noUrut = (int)substr($kode, 6, 4);
         $noUrut++;
         $char = "PS";
-        $date = date('ydm');
+        $date = date('Y');
         $kodePasien = $char . $date . sprintf("%04s", $noUrut);
         return $kodePasien;
     }

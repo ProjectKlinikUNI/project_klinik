@@ -42,7 +42,7 @@
               <li class="nav-item">
                 <a href="<?php echo base_url() ?>" class="nav-link">
                   <?php echo $main->navbar_icon; ?>
-                  <p><?php echo $main->navbar_name; ?><i class=" right fas fa-angle-left"></i></p>
+                  <p><?php echo $main->navbar_name; ?><i class="right fas fa-angle-left"></i></p>
                 </a>
                 <ul class="nav nav-treeview">
                   <?php

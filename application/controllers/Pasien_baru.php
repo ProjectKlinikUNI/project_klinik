@@ -12,7 +12,6 @@ class Pasien_baru extends CI_Controller
     public function index()
     {
         $data['pasien'] = $this->pasien->view();
-        $data['kode'] = $this->pasien->kode();
         $data['list'] = $this->pasien->listPasien();
         $data['title'] = 'Pasien Baru';
         $data['content_wrapper'] = $this->load->view('pasien/pasien_baru', $data, true);

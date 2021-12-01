@@ -13,24 +13,23 @@ class Pasien_terdaftar extends CI_Controller
     {
         $data['pasien'] = $this->pasien->view();
         $data['list'] = $this->pasien->listPasien();
+<<<<<<< HEAD
         $data['title'] = 'Pasien Terdaftar';
+=======
+        $data['title'] = 'Pasien';
+>>>>>>> parent of f5ccb50 (belum beres coba update)
         $data['content_wrapper'] = $this->load->view('pasien/pasien_terdaftar', $data, true);
         $this->load->view('main', $data);
     }
     public function create()
     {
         $this->pasien->create();
-        $this->session->flashdata('Message', 'Catatan Pasien Berhasil Ditambahkan');
+        // $this->pasien->create();
         redirect('Pasien_terdaftar');
     }
-    public function update()
+    public function printPasien()
     {
-        $this->pasien->update();
-        redirect('pasien_terdaftar');
+        $this->pasien->create();
+        redirect('Pasien');
     }
-    // public function delete($id_pasien)
-    // {
-    //     $this->pasien->delete($id_pasien);
-    //     redirect('pasien_terdaftar');
-    // }
 }

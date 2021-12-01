@@ -24,8 +24,6 @@
                     <!-- <div class="card-header "></div> -->
                     <div class="card-body ">
                         <form action="<?= base_url('Pasien_baru/create') ?>" method="post">
-                            <!-- <input type="" id="staticEmail" name="id_kunjungan" value="<?= $kode ?>"> -->
-                            <input type="hidden" class="form-control" id="staticEmail" name="id_kunjungan" value="<?= $kode; ?>" required>
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
@@ -35,13 +33,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="staticEmail" class="col-sm-4 col-form-label">Nama</label>
+                                        <label for="inputPassword" class="col-sm-4 col-form-label">Nama</label>
                                         <div class="col-sm-8">
                                             <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?= $pasien['nama_pasien'] ?>" name="nama_pasien">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="staticEmail" class="col-sm-4 col-form-label">Jenis Kelamin</label>
+                                        <label for="inputPassword" class="col-sm-4 col-form-label">Jenis Kelamin</label>
                                         <div class="col-sm-8">
                                             <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?= $pasien['jenis_kelamin'] ?>" name="jenis_kelamin">
                                         </div>
@@ -51,18 +49,18 @@
                                     <div class="form-group row">
                                         <label for="staticEmail" class="col-sm-4 col-form-label">Poli Klinik</label>
                                         <div class="col-sm-8">
-                                            <select class="form-control" id="exampleFormControlSelect1" name="id_poli">
+                                            <select class="form-control" id="exampleFormControlSelect1" name="id_poliklinik">
                                                 <option></option>
-                                                <?php $poli = $this->db->get('dm_poli')->result_array();
-                                                foreach ($poli as $p) :
+                                                <?php $dokter = $this->db->get('dm_poli')->result_array();
+                                                foreach ($dokter as $d) :
                                                 ?>
-                                                    <option value="<?= $p['id_poli'] ?>"><?= $p['nama_poli'] ?></option>
+                                                    <option value="<?= $d['id_poli'] ?>"><?= $d['nama_poli'] ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="staticEmail" class="col-sm-4 col-form-label">Dokter</label>
+                                        <label for="inputPassword" class="col-sm-4 col-form-label">Dokter</label>
                                         <div class="col-sm-8">
                                             <select class="form-control" id="exampleFormControlSelect1" name="id_dokter">
                                                 <option></option>
@@ -75,7 +73,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="staticEmail" class="col-sm-4 col-form-label">Jenis Pelayanan</label>
+                                        <label for="inputPassword" class="col-sm-4 col-form-label">Jenis Pelayanan</label>
                                         <div class="col-sm-8">
                                             <span class="form-check">
                                                 <!-- <div class="form-check"> -->
@@ -99,9 +97,9 @@
                             </div>
                             <div class="text-right">
                                 <button class="btn btn-info" data-toggle="modal" data-target="#antrian"> Simpan </button>
-                                <!-- <?php
-                                        $kunjungan = $this->db->get_where('tbl_kunjungan', ['id_kunjungan' => null])->row_array();
-                                        ?> -->
+                                <?php
+                                $kunjungan = $this->db->get_where('tbl_kunjungan', ['id_kunjungan' => null])->row_array();
+                                ?>
                                 <button class="btn btn-info" data-toggle="modal" data-target="#antrian">Cetak Nomor Antrian </button>
                             </div>
                         </form>
@@ -128,45 +126,6 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- data pasien -->
-        <div>
-            <div class="card border-primary">
-                <div class="card border-info ml-3 mt-3">
-                    <div class="card-header bg-info "> DATA PASIEN</div>
-                    <div class="card-body ">
-                        <table id="table" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                                <tr class="text-center">
-                                    <th>NO</th>
-                                    <th>ID PASIEN</th>
-                                    <th>NAMA</th>
-                                    <th>JENIS KELAMIN</th>
-                                    <th>ALAMAT</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $i = 1;
-                                foreach ($list as $v) :
-                                ?>
-                                    <tr>
-                                        <td><?= $i; ?></td>
-                                        <td><?= $v['id_pasien'] ?></td>
-                                        <td>
-                                            <a href="<?= base_url('pasien_baru') ?>" id="nama_pasien" name="keyword" type="submit"> <?= $v['nama_pasien'] ?></a>
-                                            <!-- <button class="btn btn-info" type="submit" name="keyword"><?= $v['nama_pasien'] ?></button> -->
-                                        </td>
-                                        <td><?= $v['jenis_kelamin'] ?></td>
-                                        <td><?= $v['alamat'] ?></td>
-                                    </tr>
-                            </tbody>
-                        <?php $i++;
-                                endforeach;
-                        ?>
-                        </table>
                     </div>
                 </div>
             </div>

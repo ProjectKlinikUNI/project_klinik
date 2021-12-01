@@ -1,5 +1,5 @@
 <div class="content-wrapper mt-5">
-    <div class="container-fluid ">
+    <div class="container ">
         <button class="btn btn-info ml-3 mt-3" data-toggle="modal" data-target="#create">Tambah Poliklinik Baru</button>
         <div class="card border-info ml-3 mt-3">
             <!-- <div class="card-header "></div> -->
